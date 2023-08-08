@@ -2,8 +2,6 @@ FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-WORKDIR /src
-
 RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils 2>&1
 
