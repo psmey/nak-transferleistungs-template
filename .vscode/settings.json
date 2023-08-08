@@ -1,0 +1,7 @@
+{
+    "latex-workshop.linting.chktex.enabled": true,
+    "latex-workshop.linting.lacheck.enabled": true,
+    "latex-workshop.latex.autoClean.run":"onBuilt",
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latex.outDir": "./out",
+}

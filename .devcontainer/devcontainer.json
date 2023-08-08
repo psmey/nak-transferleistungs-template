@@ -1,0 +1,12 @@
+{
+  "name": "NAK Transferleistung Template",
+  "dockerFile": "Dockerfile",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+		"james-yu.latex-workshop",
+		"eamodio.gitlens"
+	]
+    }
+  }
+}
