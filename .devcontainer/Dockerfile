@@ -1,22 +1,26 @@
 FROM ubuntu:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
-
 RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils 2>&1
 
 # Verify git and needed tools are installed
 RUN apt-get install --no-install-recommends -y git procps
 
-# Install Tex Live
+# install Tex Live
 RUN apt-get update && apt-get -y upgrade \
-    && apt-get -y install --no-install-recommends \
-    texlive-latex-base \
-    texlive-extra-utils \
+    && apt-get --no-install-recommends -y install \
     texlive-latex-extra \
-    biber chktex latexmk make python3-pygments python3-pkg-resources \
-    texlive-lang-chinese \
-    texlive-lang-japanese
+    texlive-extra-utils \
+    texlive-lang-english \
+    texlive-lang-german \
+    biber chktex latexmk make python3-pygments python3-pkg-resources
+
+# install texlive fonts
+RUN apt-get update && apt-get -y upgrade \
+    && apt-get -y install \
+    texlive-font-utils \
+    texlive-fonts-extra
 
 # latexindent modules
 RUN apt-get install --no-install-recommends -y curl

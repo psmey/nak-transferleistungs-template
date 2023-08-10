@@ -1,0 +1,10 @@
+# build files
+*.aux
+*.fls
+*.log
+*.gz
+*.fdb_latexmk
+
+# folders from src due to wrong build trigger location
+build/sections
+build/internal

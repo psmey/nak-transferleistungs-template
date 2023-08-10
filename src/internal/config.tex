@@ -1,0 +1,29 @@
+% document parameters
+
+% Colors (HEX)
+\definecolor{naklightblue}{HTML}{3cd2ff}
+\definecolor{nakblue}{HTML}{003a79}
+\definecolor{nakdarkblue}{HTML}{0f192d}
+
+% paths (from main.tex)
+\newcommand{\setgraphicspath}{\graphicspath{{../assets/}}}
+
+% header and footer
+%% macros (need to be changed with \renewcommand)
+\renewcommand{\headrulewidth}{0pt} % set thickness of a line under the header
+\renewcommand{\headruleskip}{0em} % set the distance between the line and the header text, only visual, does not impact header hight
+\renewcommand{\footrulewidth}{0pt} % set thickness of a line above the footer
+\renewcommand{\footruleskip}{0em} % set the distance between the line and the footer text, only visual, does not impact footer hight
+
+\setlength{\headsep}{1em}
+\setlength{\headheight}{47.07607pt}
+
+% Page Layout
+\geometry{
+    a4paper,
+    margin=2cm,
+    top=2.5cm,
+    bottom=3cm,
+}
+
+\renewcommand*\familydefault{\sfdefault} % set base font of the document to sans serif
