@@ -2,7 +2,7 @@
 *.aux
 *.fls
 *.log
-*.gz
+*.synctex.gz
 *.fdb_latexmk
 
 # folders from src due to wrong build trigger location
