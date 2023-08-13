@@ -1,0 +1,14 @@
+{
+    "extensions": [
+    "james-yu.latex-workshop",
+    "eamodio.gitlens"
+    ],
+  "settings": {
+    "latex-workshop.linting.chktex.enabled": true,
+    "latex-workshop.linting.lacheck.enabled": true,
+    "latex-workshop.latex.autoClean.run":"never",
+    "latex-workshop.latex.clean.subfolder.enabled": true,
+    "latex-workshop.latex.outDir": "%DIR%/../build", // keeping workspace clean
+    "latex-workshop.latex.recipe.default": "latexmk 🔃" // only latex-workshop.latex.tools tool that has "-outdir=%OUTDIR%" arg
+  }
+}
