@@ -6,7 +6,6 @@
       "extensions": [
         "james-yu.latex-workshop",
         "eamodio.gitlens"
-        // TODO: maybe there are interesing utility extensions like templaters or smth.
 	    ],
       "settings": {
         "latex-workshop.linting.chktex.enabled": true,
