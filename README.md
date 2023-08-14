@@ -18,13 +18,13 @@ Als Backend wird latexmk verwendet, da es am besten mit der Erweiterung implemen
 
 #### Pakete
 
-Wenn packages fehlen, können diese mit den entsprechenden Paketen unter https://packages.ubuntu.com/focal/texlive-full noch der Dockerfile (oder manuell)
+Wenn packages fehlen, können diese mit den entsprechenden Paketen unter https://packages.ubuntu.com/focal/texlive-full noch der Dockerfile (oder manuell) hinzugefügt.
 
 ## Entwickeln mit dem Template
 
-Geschriebene Inhalte gehören nach `transferleistungs_template/src/sections` und nach `main.tex` importiert.
+Geschriebene Inhalte gehören nach `transferleistungs_template/src/sections` werden in die `main.tex` importiert und arrangiert.
 
-
+Externe Inhalte wie Grafiken und Anhänge werden in `transferleistungs_template/assets/` abgelegt.
 
 ### Navigieren des Projekts
 
