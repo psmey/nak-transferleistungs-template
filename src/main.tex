@@ -23,10 +23,43 @@
     \thepage{}
 }
 
+% frontmatter
+\frontmatter % start pagenumberin
+
+\tableofcontents
+\newpage
+
+\listoffigures
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+
+%\listoftables % only if needed
+\addcontentsline{toc}{section}{Tabellenverzeichnis}
+
+\newpage
+
+% mainmatter
+\mainmatter{} % start pagenumbering of mainmatter
+
+%% content
+
 \input{sections/einleitung.tex}
 
 \input{sections/beispiel_abschnitt.tex}
 
 \input{sections/fazit.tex}
+
+\newpage
+
+% backmatter
+\backmatter{} % reapply pagenumbering from frontmatter
+\centering
+
+\renewcommand{\headingValue}{Anhang}
+\section*{\headingValue}
+\addcontentsline{toc}{section}{\headingValue}
+
+\renewcommand{\headingValue}{Beispiel Anhang}
+\subsection*{\headingValue{}}
+\addcontentsline{toc}{subsection}{\headingValue{}}
 
 \end{document}

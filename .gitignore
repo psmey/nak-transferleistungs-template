@@ -5,6 +5,8 @@
 *.synctex.gz
 *.fdb_latexmk
 *.toc
+*.lof
+*.lot
 
 # folders from src due to wrong build trigger location
 build/sections

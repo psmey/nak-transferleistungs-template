@@ -34,3 +34,32 @@
 \sectionfont{\headingStandardFormat}
 \subsectionfont{\headingStandardFormat}
 \subsubsectionfont{\headingStandardFormat}
+
+% handle pagenumbering
+%% start pagenumberin for frontmatter
+\def\frontmatter{
+    \newcounter{frontmatterPage}
+    \pagenumbering{Roman} % change numbering style
+}
+
+%% start pagenumbering of mainmatter
+\def\mainmatter{
+    \setcounter{frontmatterPage}{\value{page}} % safe frontmatter counter value
+    \pagenumbering{arabic} % change numbering style
+}
+
+%% reapply pagenumbering from frontmatter
+\def\backmatter{
+    \pagenumbering{Roman} % change numbering style
+    \setcounter{page}{\value{frontmatterPage}} % set pagenumbering to frontmatter counter
+}
+
+% enable \renewcommand for headings
+%% Through this command a single source of truth is created for sections
+%% where the heading needs to be written more than once like:
+%%% \renewcommand{\headingValue}{Heading}
+%%% \subsection*{\headingValue{}}
+%%% \addcontentsline{toc}{subsection}{\headingValue{}}
+%% "Heading" is only written once, which can mitigate easily overseen errors
+
+\def\headingValue{}
