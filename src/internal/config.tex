@@ -23,7 +23,6 @@
     a4paper,
     margin=2cm,
     top=2.5cm,
-    bottom=3cm,
 }
 
 \renewcommand*\familydefault{\sfdefault} % set base font of the document to sans serif
@@ -37,29 +36,28 @@
 
 % handle pagenumbering
 %% start pagenumberin for frontmatter
-\def\frontmatter{
+\newcommand{\frontmatter}{
     \newcounter{frontmatterPage}
     \pagenumbering{Roman} % change numbering style
 }
 
 %% start pagenumbering of mainmatter
-\def\mainmatter{
+\newcommand{\mainmatter}{
     \setcounter{frontmatterPage}{\value{page}} % safe frontmatter counter value
     \pagenumbering{arabic} % change numbering style
 }
 
 %% reapply pagenumbering from frontmatter
-\def\backmatter{
+\newcommand{\backmatter}{
     \pagenumbering{Roman} % change numbering style
     \setcounter{page}{\value{frontmatterPage}} % set pagenumbering to frontmatter counter
 }
 
-% enable \renewcommand for headings
+% enable \renewcommand for heading values
 %% Through this command a single source of truth is created for sections
 %% where the heading needs to be written more than once like:
 %%% \renewcommand{\headingValue}{Heading}
 %%% \subsection*{\headingValue{}}
 %%% \addcontentsline{toc}{subsection}{\headingValue{}}
 %% "Heading" is only written once, which can mitigate easily overseen errors
-
-\def\headingValue{}
+\newcommand{\headingValue}{}

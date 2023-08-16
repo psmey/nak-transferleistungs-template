@@ -7,6 +7,8 @@
 
 \setgraphicspath{}
 
+\setlength{\textheight}{23.7cm} % make more space for deckblatt footer
+
 \begin{document}
 
 % header
@@ -14,12 +16,12 @@
 \fancyhf{} % clear header and footer content
 \fancyhead[C]{\includegraphics[width=\textwidth]{header.png}} % add header content
 
+\setlength{\textheight}{25.2cm} % restore original footer height
 \input{sections/deckblatt.tex}
 
 % footer
 \fancyfoot{} % clear footer content
 \fancyfoot[C]{
-    \hfill \break{}
     \thepage{}
 }
 
@@ -31,10 +33,9 @@
 
 \listoffigures
 \addcontentsline{toc}{section}{Abbildungsverzeichnis}
-
-%\listoftables % only if needed
-\addcontentsline{toc}{section}{Tabellenverzeichnis}
-
+% only if needed
+% \listoftables
+% \addcontentsline{toc}{section}{Tabellenverzeichnis}
 \newpage
 
 % mainmatter
