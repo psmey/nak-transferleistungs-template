@@ -3,6 +3,7 @@
 % internal inputs
 \input{./internal/packages.tex}
 \input{./internal/config.tex}
+\input{internal/acronyms.tex}
 \input{../env.tex}
 
 \setgraphicspath{}
@@ -28,14 +29,25 @@
 % frontmatter
 \frontmatter % start pagenumberin
 
+% table of contents
 \tableofcontents
 \newpage
 
+% table of figures and tables
 \listoffigures
 \addcontentsline{toc}{section}{Abbildungsverzeichnis}
 % only if needed
 % \listoftables
 % \addcontentsline{toc}{section}{Tabellenverzeichnis}
+\newpage
+
+% acronyms
+\renewcommand{\headingValue}{Abkürzungsverzeichnis}
+\printacronyms[
+    template=tabular,
+    name=\headingValue{}
+]{}
+\addcontentsline{toc}{section}{\headingValue}
 \newpage
 
 % mainmatter
@@ -59,8 +71,8 @@
 \section*{\headingValue}
 \addcontentsline{toc}{section}{\headingValue}
 
-\renewcommand{\headingValue}{Beispiel Anhang}
-\subsection*{\headingValue{}}
-\addcontentsline{toc}{subsection}{\headingValue{}}
+\addAppendix{Beispiel Anhang}{LaTeX_CheatSheet.pdf}
+
+\addAppendix{Beispiel Anhang 2}{LaTeX_CheatSheet.pdf}
 
 \end{document}

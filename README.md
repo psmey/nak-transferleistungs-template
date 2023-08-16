@@ -22,30 +22,27 @@ Wenn packages fehlen, können diese mit den entsprechenden Paketen unter https:/
 
 ## Entwickeln mit dem Template
 
-Geschriebene Inhalte gehören nach `transferleistungs_template/src/sections` werden in die `main.tex` importiert und arrangiert.
-
-Externe Inhalte wie Grafiken und Anhänge werden in `transferleistungs_template/assets/` abgelegt.
-
 ### Navigieren des Projekts
 
 ```
 Transferleistungstemplate
 ├── .devcontainer/              // Docker
-│   ├── devcontainer.json   
-│   └── Dockerfile  
-├── .vscode /                   // for lokal development
+│   ├── devcontainer.json
+│   └── Dockerfile
+├── .vscode /                   // für lokales Entwickeln
 │   └── settings.json
-├── assets/                     // figures, images
-├── build/                      // output
-├── src/                        
-│   ├── internal/               // preamble
-│   │   ├── config.tex             // config like formats
-│   │   └── packages.tex           // package imports
-│   ├── sections/               // document files
-│   └── main.tex                // main file
-├── .gitignore  
-├── bibliography.bib            // bibliography
-├── env.tex                     // external parameters
+├── assets/                     // Grafiken und Tabellen
+├── build/                      // Output
+├── src/
+│   ├── internal/                  // Präambel
+│   │   ├── acronyms.tex              // Abkürzungen
+│   │   ├── bibliography.bib          // Bibliographie
+│   │   ├── config.tex                // Formattierungen
+│   │   └── packages.tex              // Pakete
+│   ├── sections/                  // eigentliches Dokument
+│   └── main.tex                   // main file
+├── .gitignore
+├── env.tex                     // Paramter
 └── README.md
 ```
 
@@ -56,3 +53,59 @@ Alle TexLive eigenen Schriftarten können unter der folgenen Liste gefunden werd
 In der Liste wird auch die Einbindung der Schriftarten beschrieben
 
 Der ausgewählte Font ist aber die Schriftart der NAK Dokumente
+
+# Kurzreferenz
+
+Dokumentiert wird wie folgt:
+
+```
+\befehl{<variable>} -> output
+```
+
+## Abkürzungen
+Für Abkürzungen wird `acro` verwendet, mehr information dazu gibt es in der [Dokumentation](https://github.com/cgnieder/acro/blob/master/doc/acro-manual.pdf).
+
+<span style="color:LightCoral">❗`\printacronyms` funktioniert nicht immer beim ersten durchlauf, das Dokument muss ggf. mehrmals gebaut werden!</span>
+
+### Abkürzungen erstellen
+
+Abkürzungen werden in der folgenden Datei abgelegt:
+
+```
+transferleistungs_template/src/internal/acronyms.tex
+```
+
+Eine Abkürzung wird wie folgt angelegt (in der Dokumentation gibt noch weitere Parameter, die aber optional sind):
+
+```latex
+\DeclareAcronym{<id>}{
+    short = <short>,
+    long = <long>
+}
+```
+
+### Abkürzungen im Text verwenden
+
+```latex
+\ac{<id>} -> <long> (<short>)
+```
+```latex
+\acs{<id>} -> <short>
+```
+```latex
+\acl{<id>} -> <long>
+```
+
+## Anhang
+
+PDF unter folgendem Pfad ablegen:
+
+```
+transferleistungs_template/assets
+```
+
+Anhang mit folgendem custom Befehl können Anhänge hinzugefügt werden:
+
+```latex
+\addAppendix{<tile>}{<filename>}
+```

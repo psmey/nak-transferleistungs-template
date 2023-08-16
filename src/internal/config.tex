@@ -61,3 +61,14 @@
 %%% \addcontentsline{toc}{subsection}{\headingValue{}}
 %% "Heading" is only written once, which can mitigate easily overseen errors
 \newcommand{\headingValue}{}
+
+% easy import for appendix
+\newcommand{\addAppendix}[2]{
+    % #1: appendix heading
+    % #2: filename
+    \subsection*{#1} % Heading for appendix
+    \addcontentsline{toc}{subsection}{#1} % register appendix in toc
+    \setcounter{frontmatterPage}{\value{page} + 1} % safe page value
+    \includepdf[pages=-]{../assets/#2} % add pdf into main
+    \backmatter{} % set correct page value, to not count appendix pages
+}
