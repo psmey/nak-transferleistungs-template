@@ -1,11 +1,12 @@
 {
-  "name": "NAK Transferleistung Template",
+  "name": "NAK Transferleistungs Template",
   "dockerFile": "Dockerfile",
   "customizations": {
     "vscode": {
       "extensions": [
         "james-yu.latex-workshop",
-        "eamodio.gitlens"
+        "eamodio.gitlens",
+        "valentjn.vscode-ltex"
 	    ],
       "settings": {
         "latex-workshop.linting.chktex.enabled": true,
@@ -13,7 +14,10 @@
         "latex-workshop.latex.autoClean.run":"never",
         "latex-workshop.latex.clean.subfolder.enabled": true,
         "latex-workshop.latex.outDir": "%DIR%/../build", // keeping workspace clean
-        "latex-workshop.latex.recipe.default": "latexmk 🔃" // only latex-workshop.latex.tools tool that has "-outdir=%OUTDIR%" arg
+        "latex-workshop.latex.recipe.default": "latexmk 🔃", // only latex-workshop.latex.tools tool that has "-outdir=%OUTDIR%" arg
+        "ltex.language": "de-DE",
+        "ltex.additionalRules.enablePickyRules": true,
+        "ltex.additionalRules.motherTongue": "de-DE"
       }
     }
   }
