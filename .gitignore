@@ -7,7 +7,9 @@
 *.toc
 *.lof
 *.lot
+## bib build files
+*.bbl
+*.blg
 
 # folders from src due to wrong build trigger location
-build/sections
-build/internal
+build/*/

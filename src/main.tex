@@ -44,8 +44,8 @@
 % acronyms
 \renewcommand{\headingValue}{Abkürzungsverzeichnis}
 \printacronyms[
-    template=tabular,
-    name=\headingValue{}
+    template=tabular, % use a table like formatting for acronyms list
+    name=\headingValue{} % set heading
 ]{}
 \addcontentsline{toc}{section}{\headingValue}
 \newpage
@@ -65,6 +65,11 @@
 
 % backmatter
 \backmatter{} % reapply pagenumbering from frontmatter
+
+\bibliography{bibliography}
+\addcontentsline{toc}{section}{Literaturverzeichnis}
+\newpage
+
 \centering
 
 \renewcommand{\headingValue}{Anhang}
