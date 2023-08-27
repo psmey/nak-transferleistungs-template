@@ -5,8 +5,10 @@
 \definecolor{nakblue}{HTML}{003a79}
 \definecolor{nakdarkblue}{HTML}{0f192d}
 
-% paths (from main.tex)
-\newcommand{\setgraphicspath}{\graphicspath{{../assets/}}}
+
+% set graphics path
+\graphicspath{{../assets/images}}
+
 
 % header and footer
 %% macros (need to be changed with \renewcommand)
@@ -18,6 +20,7 @@
 \setlength{\headsep}{1em}
 \setlength{\headheight}{47.07607pt}
 
+
 % page layout
 \geometry{%
     a4paper,
@@ -25,7 +28,9 @@
     top=2.5cm,
 }
 
+% font
 \renewcommand*\familydefault{\sfdefault} % set base font of the document to sans serif
+
 
 % heading formats
 \newcommand{\headingStandardFormat}{\color{nakblue}\textbf{}}
@@ -33,6 +38,7 @@
 \sectionfont{\headingStandardFormat}
 \subsectionfont{\headingStandardFormat}
 \subsubsectionfont{\headingStandardFormat}
+
 
 % handle pagenumbering
 %% start pagenumberin for frontmatter
@@ -62,16 +68,29 @@
 %% "Heading" is only written once, which can mitigate easily overseen errors
 \newcommand{\headingValue}{}
 
+
 % easy import for appendix
 \newcommand{\addAppendix}[2]{
+    % parameters:
     % #1: appendix heading
     % #2: filename
     \subsection*{#1} % Heading for appendix
     \addcontentsline{toc}{subsection}{#1} % register appendix in toc
     \setcounter{frontmatterPage}{\value{page} + 1} % safe page value
-    \includepdf[pages=-]{../assets/#2} % add pdf into main
+    \includepdf[pages=-]{../assets/appendix/#2} % add pdf into main
     \backmatter{} % set correct page value, to not count appendix pages
 }
 
+
 % bibliography
 \bibliographystyle{apalike-german}
+
+\newcommand{\addBibliography}[1]{
+    % parameters
+    % #1: bibliography name
+    \renewcommand{\headingValue}{Literatur}
+    \addto{\captionsngerman}{\renewcommand{\bibname}{\headingValue}}
+    \bibliography{internal/#1}
+    \addcontentsline{toc}{section}{\headingValue}
+    \newpage
+}

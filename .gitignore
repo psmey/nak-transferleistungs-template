@@ -1,15 +1,3 @@
 # build files
-*.aux
-*.fls
-*.log
-*.synctex.gz
-*.fdb_latexmk
-*.toc
-*.lof
-*.lot
-## bib build files
-*.bbl
-*.blg
-
-# folders from src due to wrong build trigger location
-build/*/
+build/*
+!main.pdf

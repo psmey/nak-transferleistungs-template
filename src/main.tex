@@ -6,8 +6,6 @@
 \input{internal/acronyms.tex}
 \input{../env.tex}
 
-\setgraphicspath{}
-
 \setlength{\textheight}{23.7cm} % make more space for deckblatt footer
 
 \begin{document}
@@ -30,19 +28,25 @@
 \frontmatter % start pagenumberin
 
 % table of contents
+\renewcommand{\contentsname}{Inhalt}
 \tableofcontents
 \newpage
 
 % table of figures and tables
+\renewcommand{\headingValue}{Abbildungen}
+\renewcommand{\listfigurename}{\headingValue}
 \listoffigures
-\addcontentsline{toc}{section}{Abbildungsverzeichnis}
-% only if needed
-% \listoftables
-% \addcontentsline{toc}{section}{Tabellenverzeichnis}
+\addcontentsline{toc}{section}{\headingValue}
+
+\renewcommand{\headingValue}{Tabellen}
+\renewcommand{\listtablename}{\headingValue}
+\listoftables
+\addcontentsline{toc}{section}{\headingValue}
+
 \newpage
 
 % acronyms
-\renewcommand{\headingValue}{Abkürzungsverzeichnis}
+\renewcommand{\headingValue}{Abkürzungen}
 \printacronyms[
     template=tabular, % use a table like formatting for acronyms list
     name=\headingValue{} % set heading
@@ -66,9 +70,7 @@
 % backmatter
 \backmatter{} % reapply pagenumbering from frontmatter
 
-\bibliography{bibliography}
-\addcontentsline{toc}{section}{Literaturverzeichnis}
-\newpage
+\addBibliography{bibliography}
 
 \centering
 
