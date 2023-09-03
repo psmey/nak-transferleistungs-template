@@ -1,10 +1,10 @@
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 
 % internal inputs
-\input{./internal/packages.tex}
-\input{./internal/config.tex}
-\input{internal/acronyms.tex}
-\input{../env.tex}
+\input{../../config/packages.tex}
+\input{../../config/config.tex}
+\input{../../config/acronyms.tex}
+\input{../../config/env.tex}
 
 \setlength{\textheight}{23.7cm} % make more space for deckblatt footer
 
@@ -60,7 +60,7 @@
 %% content
 
 \input{sections/einleitung.tex}
-
+eee
 \input{sections/beispiel_abschnitt.tex}
 
 \input{sections/fazit.tex}
@@ -70,7 +70,11 @@
 % backmatter
 \backmatter{} % reapply pagenumbering from frontmatter
 
-\addBibliography{bibliography}
+% bibliography
+%\renewcommand{\headingValue}{Literatur}
+\printbibliography{}
+%\addcontentsline{toc}{section}{\headingValue}
+\newpage
 
 \centering
 

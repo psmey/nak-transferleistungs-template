@@ -14,10 +14,10 @@
         "latex-workshop.linting.lacheck.enabled": true, // consistency checker for LaTeX documents
         "latex-workshop.latex.autoClean.run":"onSucceeded",
         "latex-workshop.latex.clean.subfolder.enabled": true,
-        "latex-workshop.latex.outDir": "%DIR%/../build", // keeping workspace clean of build files
+        "latex-workshop.latex.outDir": "%DIR%/../../build", // keeping workspace clean of build files
         "latex-workshop.latex.recipe.default": "latexmk 🔃", // only latex-workshop.latex.tools tool that has "-outdir=%OUTDIR%" arg
         "latex-workshop.intellisense.update.aggressive.enabled": true,
-        "latex-workshop.latex.bibDirs": ["src/internal"],
+        "latex-workshop.latex.bibDirs": ["%DIR%/../../config"],
         "latex-workshop.intellisense.citation.backend": "biblatex",
         "latex-workshop.bibtex-format.sort.enabled": true,
         "latex-workshop.bibtex-fields.sort.enabled": true,

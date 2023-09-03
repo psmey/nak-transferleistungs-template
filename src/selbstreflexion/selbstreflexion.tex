@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+
+% internal inputs
+\input{../../config/packages.tex}
+\input{../../config/config.tex}
+\input{../../config/acronyms.tex}
+\input{../../config/env.tex}
+
+\setlength{\textheight}{23.7cm} % make more space for deckblatt footer
+
+\begin{document}
+
+% header
+\pagestyle{fancy} % enable fancyhdr package
+\fancyhf{} % clear header and footer content
+\fancyhead[C]{\includegraphics[width=\textwidth]{header.png}} % add header content
+
+% footer
+\fancyfoot[L]{
+    \itshape{} % italic
+    * Studierende, die unter den Anwendungsbereich der PVO bis 03.02.2015 fallen, fertigen Transferleistungen
+    weiterhin in der Form von Praxisberichten an und der Begriff hält Einzug in das Abschlusszeugnis. Ab dem
+    Jahrgang 2016 hat der Begriff vollumfängliche Gültigkeit. In der Kommunikation hält der Begriff
+    Transferleistungen ab sofort Einzug.
+}
+
+\subsection*{Selbstreflexion Transferleistung Theorie/Praxis*}
+
+\vspace{1.5em}
+
+\renewcommand{\arraystretch}{1.5} % vertical padding
+\setlength{\tabcolsep}{0pt} % remove horozontal padding for text alignment to left margin
+\begin{tabularx}{\textwidth}[h]{m{.225\textwidth}m{1em}X}
+    Matrikelnummer:                                          &  & \matrikelnummer{}     \\
+    \raggedright{} Freigegebenes Thema der Transferleistung: &  & \freigegebenesThema{} \\
+\end{tabularx}
+
+\vspace{1.5em}
+
+Diese Fragen dienen Ihnen zur Selbstreflexion und als Unterstützung bei der Erstellung Ihrer
+Transferleistung. Wir empfehlen Ihnen, sich vor, während und nach der Erstellung der
+Transferleistung immer wieder diese Fragen zu stellen um auf diesem Wege eine
+wissenschaftlich fundierte Transferleistung auszuarbeiten. Bitte beantworten Sie die Fragen
+mit ein bis zwei Sätzen (möglich sind auch Aufzählungen) und verweisen zudem auf das
+dazugehörige Kapitel in Ihrer Transferleistung. Im Gegensatz zu Ihrer Transferleistung und
+Auftragsklärung ist im Rahmen der Selbstreflexion die Ich-Form erwünscht. Die Abgabe der
+ausgefüllten Selbstreflexion ist Bestandteil Ihrer Transferleistung und fließt in die Bewertung
+dieser ein.
+\\ \\
+Für die Beantwortung der Fragen stehen Ihnen als Richtwert 2000 Zeichen (ohne
+Leerzeichen) zur Verfügung.
+
+\newpage
+
+% footer
+\fancyfoot{} % clear footer content
+
+\setlength{\textheight}{25.2cm} % restore original footer height
+
+\end{document}

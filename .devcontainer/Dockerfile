@@ -9,11 +9,8 @@ RUN apt-get install --no-install-recommends -y git procps
 
 # install Tex Live
 RUN apt-get update && apt-get -y upgrade \
-    && apt-get --no-install-recommends -y install \
-    texlive-latex-extra \
-    texlive-extra-utils \
-    texlive-lang-english \
-    texlive-lang-german \
+    && apt-get -y install \
+    texlive-full \
     biber chktex latexmk make python3-pygments python3-pkg-resources
 
 # install texlive fonts

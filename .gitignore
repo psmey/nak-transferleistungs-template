@@ -1,6 +1,5 @@
 # build files
 build/*
-!main.pdf
-
+!*.pdf
 # logs
 *.log

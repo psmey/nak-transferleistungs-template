@@ -7,8 +7,10 @@
 
 
 % set graphics path
-\graphicspath{{../assets/images}}
+\graphicspath{{../../assets/images}}
 
+% import bibliography
+\addbibresource{../../config/bibliography.bib}
 
 % header and footer
 %% macros (need to be changed with \renewcommand)
@@ -81,16 +83,19 @@
     \backmatter{} % set correct page value, to not count appendix pages
 }
 
+\newcommand{\nakQuestionTabular}[2]{
+    \renewcommand{\arraystretch}{1.5} % change vertical padding of the table
 
-% bibliography
-\bibliographystyle{apalike-german}
+    \begin{tabularx}
+        {\textwidth} % specify table width
+        {| X |} % collumn rules, X fills space to collumn width
+        \hline
+        \rowcolor{nakblue}
+        \textcolor{white}{#1} \\
+        \hline
+        #2                    \\
+        \hline
+    \end{tabularx}
 
-\newcommand{\addBibliography}[1]{
-    % parameters
-    % #1: bibliography name
-    \renewcommand{\headingValue}{Literatur}
-    \addto{\captionsngerman}{\renewcommand{\bibname}{\headingValue}}
-    \bibliography{internal/#1}
-    \addcontentsline{toc}{section}{\headingValue}
-    \newpage
+    \renewcommand{\arraystretch}{1} % change vertical padding of the table
 }

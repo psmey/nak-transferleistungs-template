@@ -51,10 +51,15 @@ Als Backend wird latexmk verwendet, da es am besten mit [LaTeX Workshop](https:/
 
 ### VSC Erweiterungen
 
+TBD
 
 ## Entwickeln mit dem Template
 
+TBD
+
 ### Navigieren des Projekts
+
+etwas out of date...
 
 ```
 Transferleistungstemplate
@@ -232,8 +237,14 @@ Zu beachten ist, dass alle Eingabetypen das url-Feld unterstützen. Zum Beispiel
 
 ### Zitieren
 
+Im Gegensatz zu `\cite` sind bei `\parencite` die Klammern vorhanden
+
 ```latex
-\cite{<id>}
+\parencite{<id>}
+```
+
+```latex
+\parencite[vgl.][<seite>]{<id>}
 ```
 
 ## Grafiken
