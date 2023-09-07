@@ -44,19 +44,19 @@
 
 % handle pagenumbering
 %% start pagenumberin for frontmatter
-\newcommand{\frontmatter}{
+\newcommand{\frontmatter}{%
     \newcounter{frontmatterPage}
     \pagenumbering{Roman} % change numbering style
 }
 
 %% start pagenumbering of mainmatter
-\newcommand{\mainmatter}{
+\newcommand{\mainmatter}{%
     \setcounter{frontmatterPage}{\value{page}} % safe frontmatter counter value
     \pagenumbering{arabic} % change numbering style
 }
 
 %% reapply pagenumbering from frontmatter
-\newcommand{\backmatter}{
+\newcommand{\backmatter}{%
     \pagenumbering{Roman} % change numbering style
     \setcounter{page}{\value{frontmatterPage}} % set pagenumbering to frontmatter counter
 }
@@ -72,7 +72,7 @@
 
 
 % easy import for appendix
-\newcommand{\addAppendix}[2]{
+\newcommand{\addAppendix}[2]{%
     % parameters:
     % #1: appendix heading
     % #2: filename
@@ -83,7 +83,7 @@
     \backmatter{} % set correct page value, to not count appendix pages
 }
 
-\newcommand{\nakQuestionTabular}[2]{
+\newcommand{\nakQuestionTabular}[2]{%
     \renewcommand{\arraystretch}{1.5} % change vertical padding of the table
 
     \begin{tabularx}
