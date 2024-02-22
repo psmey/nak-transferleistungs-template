@@ -1,30 +1,18 @@
 {
-  "name": "NAK Transferleistungs Template",
+  "name": "Transferleistung 3",
   "dockerFile": "Dockerfile",
   "customizations": {
     "vscode": {
       "extensions": [
         "james-yu.latex-workshop", // support for .tex
         "eamodio.gitlens",
-        "valentjn.vscode-ltex", // spellcheck
-        "yzhang.markdown-all-in-one" // for documentation
-	    ],
-      "settings": {
-        "latex-workshop.linting.chktex.enabled": true, // LaTeX semantic checker https://www.ctan.org/pkg/chktex
-        "latex-workshop.linting.lacheck.enabled": true, // consistency checker for LaTeX documents
-        "latex-workshop.latex.autoClean.run":"onSucceeded",
-        "latex-workshop.latex.clean.subfolder.enabled": true,
-        "latex-workshop.latex.outDir": "%DIR%/../../build", // keeping workspace clean of build files
-        "latex-workshop.latex.recipe.default": "latexmk 🔃", // only latex-workshop.latex.tools tool that has "-outdir=%OUTDIR%" arg
-        "latex-workshop.intellisense.update.aggressive.enabled": true,
-        "latex-workshop.latex.bibDirs": ["%DIR%/../../config"],
-        "latex-workshop.intellisense.citation.backend": "biblatex",
-        "latex-workshop.bibtex-format.sort.enabled": true,
-        "latex-workshop.bibtex-fields.sort.enabled": true,
-        "ltex.language": "de-DE",
-        "ltex.additionalRules.enablePickyRules": true,
-        "ltex.additionalRules.motherTongue": "de-DE"
-      }
+        "valentjn.vscode-ltex", // spellcheck and grammar
+        "kirozen.wordcounter",
+        "tomoki1207.pdf",
+        // for documentation
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.vscode-markdownlint"
+      ]
     }
   }
 }

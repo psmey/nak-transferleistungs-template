@@ -1,23 +1,32 @@
 {
-  "extensions": [
-  "james-yu.latex-workshop",
-  "eamodio.gitlens",
-  "valentjn.vscode-ltex"
+  "files.autoSave": "onFocusChange",
+  "editor.wordWrap": "wordWrapColumn",
+  "latex-workshop.linting.chktex.enabled": true, // LaTeX semantic checker https://www.ctan.org/pkg/chktex
+  "latex-workshop.linting.lacheck.enabled": true, // consistency checker for LaTeX documents
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.clean.subfolder.enabled": true,
+  "latex-workshop.latex.outDir": "%DIR%/../../build", // keeping workspace clean of build files
+  "latex-workshop.latex.recipe.default": "latexmk", // only latex-workshop.latex.tools tool that has "-outdir=%OUTDIR%" arg
+  "latex-workshop.intellisense.update.aggressive.enabled": true,
+  "latex-workshop.latex.bibDirs": [
+      "%DIR%/../../config"
   ],
-  "settings": {
-    "latex-workshop.linting.chktex.enabled": true, // LaTeX semantic checker https://www.ctan.org/pkg/chktex
-    "latex-workshop.linting.lacheck.enabled": true, // consistency checker for LaTeX documents
-    "latex-workshop.latex.autoClean.run":"onSucceeded",
-    "latex-workshop.latex.clean.subfolder.enabled": true,
-    "latex-workshop.latex.outDir": "%DIR%/../build", // keeping workspace clean of build files
-    "latex-workshop.latex.recipe.default": "latexmk 🔃", // only latex-workshop.latex.tools tool that has "-outdir=%OUTDIR%" arg
-    "latex-workshop.intellisense.update.aggressive.enabled": true,
-    "latex-workshop.latex.bibDirs": ["src/internal"],
-    "latex-workshop.intellisense.citation.backend": "biblatex",
-    "latex-workshop.bibtex-format.sort.enabled": true,
-    "latex-workshop.bibtex-fields.sort.enabled": true,
-    "ltex.language": "de-DE",
-    "ltex.additionalRules.enablePickyRules": true,
-    "ltex.additionalRules.motherTongue": "de-DE"
-  }
+  "latex-workshop.intellisense.citation.backend": "biblatex",
+  "latex-workshop.bibtex-format.sort.enabled": true,
+  "latex-workshop.bibtex-fields.sort.enabled": true,
+  "ltex.language": "de-DE",
+  "ltex.additionalRules.enablePickyRules": true,
+  "ltex.additionalRules.motherTongue": "de-DE",
+  "editor.tabSize": 4,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+      "source.fixAll": "always",
+      "source.organizeImports": "always"
+  },
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.texcount.autorun": "onSave",
+  "latex-workshop.texcount.interval": 100,
+  "ltex.completionEnabled": true,
+  "files.trimTrailingWhitespace": true,
+  "latex-workshop.bibtex-format.trailingComma": true,
 }
