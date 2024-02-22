@@ -6,14 +6,20 @@
 \usepackage{geometry} % for page margins
 \usepackage[OT1]{fontenc} % enable european encoding and font
 \usepackage{sectsty} % enable heading command formatting
-\usepackage[english, ngerman]{babel} % enable syllable separation (the last language is the selected document langue) 
+\usepackage[english, ngerman]{babel} % enable syllable separation (the last language is the selected document langue)
 \usepackage{colortbl} % to use colors in tables
 \usepackage{tabularx} % for changing table sizes with an factor based approach
 \usepackage{acro} % acronyms list, alphabetically sorted
 \usepackage{pdfpages} % to import pdfs into the document
 \usepackage{subcaption} % allow images arrays with subfigures
 \usepackage{csquotes} % for consistent quoting
-\usepackage[style=apa]{biblatex} % better bibliography
+\usepackage[style=authoryear]{biblatex} % better bibliography
+\usepackage{float} % allows for [H] option for figures, which actually enforces position in text
+
+% special characters
+% http://mirrors.ctan.org/info/symbols/comprehensive/symbols-a4.pdf
+\usepackage{amsfonts} % allow for \checkmark
+\usepackage{pifont} % allow for \ding{228}
 
 % dev tools
 \usepackage{blindtext}
