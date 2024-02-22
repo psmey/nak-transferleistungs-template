@@ -1,0 +1,9 @@
+# Deactivated rules
+
+-n8
+# 8: Wrong length of dash may have been used.
+# Because: Differentiating between different dashes is unnessary, because LaTeX does it already by itself and implementing it in code only conflicts VSC's handleing of unusual characters.
+
+-n44
+# 44: User Regex: -2:Use \toprule, midrule, or \bottomrule from booktabs.
+# Because: booktabs may have a better handeling of tables but the difference in linethickness is very offputting with smaller tables and \hline is sufficient.
