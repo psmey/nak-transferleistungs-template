@@ -5,7 +5,6 @@
 \definecolor{nakblue}{HTML}{003a79}
 \definecolor{nakdarkblue}{HTML}{0f192d}
 
-
 % set graphics path
 \graphicspath{{../../assets/images}}
 
@@ -21,7 +20,6 @@
 
 \setlength{\headsep}{1em}
 \setlength{\headheight}{47.07607pt}
-
 
 % page layout
 \geometry{%
@@ -40,7 +38,6 @@
 \sectionfont{\headingStandardFormat}
 \subsectionfont{\headingStandardFormat}
 \subsubsectionfont{\headingStandardFormat}
-
 
 % handle pagenumbering
 %% start pagenumberin for frontmatter
@@ -72,14 +69,15 @@
 
 
 % easy import for appendix
-\newcommand{\addAppendix}[2]{%
+\newcommand{\addAppendix}[3]{%
     % parameters:
     % #1: appendix heading
     % #2: filename
+    % #3: include pdf parameters
     \subsection*{#1} % Heading for appendix
     \addcontentsline{toc}{subsection}{#1} % register appendix in toc
     \setcounter{frontmatterPage}{\value{page} + 1} % safe page value
-    \includepdf[pages=-]{../assets/appendix/#2} % add pdf into main
+    \includepdf[#3]{../assets/appendix/#2} % add pdf into main
     \backmatter{} % set correct page value, to not count appendix pages
 }
 
@@ -99,3 +97,6 @@
 
     \renewcommand{\arraystretch}{1} % change vertical padding of the table
 }
+
+% list symbol
+\renewcommand{\labelitemi}{\color{nakblue}\ding{228}}
