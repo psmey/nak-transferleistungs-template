@@ -1,5 +1,5 @@
 {
-  "name": "Transferleistung 3",
+  "name": "NAK Transferleistungs Template",
   "dockerFile": "Dockerfile",
   "customizations": {
     "vscode": {

@@ -3,8 +3,8 @@
 % internal inputs
 \input{../../config/packages.tex}
 \input{../../config/config.tex}
-\input{../../config/acronyms.tex}
 \input{../../config/env.tex}
+\input{answers.tex}
 
 \begin{document}
 
@@ -12,7 +12,6 @@
 \pagestyle{fancy} % enable fancyhdr package
 \fancyhf{} % clear header and footer content
 \fancyhead[C]{\includegraphics[width=\textwidth]{header.png}} % add header content
-\fancyfoot[C]{\thepage}
 
 \section*{Auftragsklärung Transferleistungen Theorie/Praxis}
 
@@ -22,9 +21,9 @@ Matrikelnummer: \matrikelnummer{}
 
 \vspace{1.5em}
 
-Da Sie eine Fragestellung bzw.\ eine Problemlösung für Ihr Unternehmen anstreben, ist eine
-umfangreiche Auftragsklärung unabdingbar und hat drei wesentliche Ziele:
+Da Sie eine Fragestellung bzw.\ eine Problemlösung für Ihr Unternehmen anstreben, ist eine umfangreiche Auftragsklärung unabdingbar und hat drei wesentliche Ziele:
 
+\renewcommand{\labelitemi}{\checkmark}
 \begin{itemize}
     \item \textbf{\color{nakblue} Sie} haben von Beginn an ein klares Bild, was die Anforderungen Ihres Unternehmens an Ihre Transferleistung sind,
     \item \textbf{\color{nakblue} die betrieblichen Betreuer} Ihrer Unternehmen wissen, welchen Output und somit Mehrwert sie von Ihnen durch die Transferleistung erwarten können,
@@ -40,7 +39,7 @@ Bitte beantworten Sie die Fragen gemeinsam mit Ihrem betrieblichen Betreuer. Ins
 \nakQuestionTabular{%
     Wie lautet Ihr Thema (die betriebliche Fragestellung/das betriebliche Problem)?%
 }{%
-    [ANTWORT]
+    \freigegebenesThema{}
 }
 
 \vspace{1.5em}
@@ -49,7 +48,7 @@ Bitte beantworten Sie die Fragen gemeinsam mit Ihrem betrieblichen Betreuer. Ins
     Was ist der Anlass für die Fragestellung bzw.\ das Problem? \newline
     Wie wurde ich oder mein betrieblicher Betreuer auf das Problem aufmerksam und was wurde ggf.\ schon unternommen?%
 }{%
-    [ANTWORT]
+    \answerReason{}
 }
 
 \vspace{1.5em}
@@ -58,7 +57,7 @@ Bitte beantworten Sie die Fragen gemeinsam mit Ihrem betrieblichen Betreuer. Ins
     Wie stellt sich die Fragestellung bzw.\ das Problem konkret in der Arbeitssituation dar? \newline
     Was bedeutet es, die Fragestellung bzw.\ das Problem noch nicht beantwortet bzw.\ gelöst zu haben?%
 }{%
-    [ANTWORT]
+    \answerProblem{}
 }
 
 \vspace{1.5em}
@@ -66,7 +65,7 @@ Bitte beantworten Sie die Fragen gemeinsam mit Ihrem betrieblichen Betreuer. Ins
 \nakQuestionTabular{%
     Was ist das Ziel der Transferleistung?%
 }{%
-    [ANTWORT]
+    \answerGoal{}
 }
 
 \vspace{1.5em}
@@ -76,17 +75,16 @@ Bitte beantworten Sie die Fragen gemeinsam mit Ihrem betrieblichen Betreuer. Ins
     Mit welchen Methoden/Materialien will ich dies herausfinden/belegen/prüfen? \newline
     Was will ich in meiner Transferleistung hauptsächlich tun: argumentieren? analysieren? vergleichen? interpretieren? prüfen?%
 }{%
-    [ANTWORT]
+    \answerMethod{}
 }
 
 \newpage
 
 \vspace*{1.5em}
 
-Ich gebe das Thema hiermit frei und übernehme die Betreuung des Studierenden während
-der Erstellung der Transferleistung:
+Ich gebe das Thema hiermit frei und übernehme die Betreuung des Studierenden während der Erstellung der Transferleistung:
 
-\vspace{1.5em}
+\vspace{3em}
 
 \renewcommand{\arraystretch}{1.5} % change vertical padding of the table
 
@@ -99,11 +97,6 @@ der Erstellung der Transferleistung:
 \vspace{3em}
 
 Im Anschluss laden Sie die
-Auftragsklärung im CIS hoch. Ob Ihre Fragestellung angenommen wurde, erfahren Sie innerhalb einer Woche (gerechnet an Werktagen). Wenn das Thema durch die NORDAKADEMIE angenommen wurde, startet der 4-wöchige
-Bearbeitungszeitraum. Wird Ihre Transferleistung nicht angenommen, erhalten Sie eine
-Information über den Ablehnungsgrund und können die Fragestellung, z. B. mit einem
-anderen Schwerpunkt oder einem anderen geplanten Vorgehen, erneut hochladen.
-Dieser Prozess kann sich ggf.\ mehrmals wiederholen, bis die Fragestellung angenommen
-wurde.
+Auftragsklärung im CIS hoch. Ob Ihre Fragestellung angenommen wurde, erfahren Sie innerhalb einer Woche (gerechnet an Werktagen). Wenn das Thema durch die NORDAKADEMIE angenommen wurde, startet der 4-wöchige Bearbeitungszeitraum. Wird Ihre Transferleistung nicht angenommen, erhalten Sie eine Information über den Ablehnungsgrund und können die Fragestellung, z.B. mit einem anderen Schwerpunkt oder einem anderen geplanten Vorgehen, erneut hochladen. Dieser Prozess kann sich ggf.\ mehrmals wiederholen, bis die Fragestellung angenommen wurde.
 
 \end{document}

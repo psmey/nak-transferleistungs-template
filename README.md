@@ -1,6 +1,6 @@
 # NAK Transferleistungs LaTeX-Template <!-- omit in toc -->
 
-Transferleistung 3: Agiles Entwickeln im Unternehmen
+Ein Template für die Transferleistungen an der Nordakademie.
 
 ## Inhalt <!-- omit in toc -->
 
