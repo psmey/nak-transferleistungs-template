@@ -35,7 +35,11 @@ Ein Template für die Transferleistungen an der Nordakademie, basierend auf dem 
   - [Listen](#listen)
     - [Befehl](#befehl)
     - [Listensymbol ändern](#listensymbol-ändern)
-
+  - [Codeblöcke](#codeblöcke)
+    - [Codeblock im Text](#codeblock-im-text)
+    - [Styling](#styling)
+    - [Quelltextverzeichnis](#quelltextverzeichnis)
+    - [Quelltextüberschrift](#quelltextüberschrift)
 
 # Anleitung
 
@@ -443,4 +447,55 @@ TBD
 
 ```Latex
 \renewcommand{\labelitemi}{<symbol>}
+```
+
+## Codeblöcke
+
+Codeblöcke werden mit dem Paket [minted](https://www.ctan.org/tex-archive/macros/latex/contrib/minted/) realisiert.
+
+### Codeblock im Text
+
+```latex
+\begin{listing}[H]
+    \begin{minted}[
+        numbers = left
+    ]{c}
+int main() {
+    // print hello world
+    printf("hello, world");
+    return 0;
+}
+    \end{minted}
+    \caption{Hello world in C}
+    \label{lst:listing}
+\end{listing}
+```
+
+### Styling
+
+Festgelegt in `config/config.tex`
+
+```latex
+\usemintedstyle{vs}
+```
+
+### Quelltextverzeichnis
+
+Festgelegt in `src/transferleinstung/transferleistung.tex`
+
+```latex
+% list of code
+\renewcommand{\headingValue}{Quelltext}
+\renewcommand\listoflistingscaption{\headingValue} % Name ändern (original List of Listings)
+\listoflistings
+\addcontentsline{toc}{section}{\headingValue}
+\newpage
+```
+
+### Quelltextüberschrift
+
+Festgelegt in `config/config.tex`
+
+```latex
+\renewcommand{\listingscaption}{Quelltext}
 ```

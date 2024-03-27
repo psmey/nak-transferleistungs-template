@@ -30,17 +30,24 @@
 \tableofcontents
 \newpage
 
-% table of figures
+% list of figures
 \renewcommand{\headingValue}{Abbildungen}
 \renewcommand{\listfigurename}{\headingValue}
 \listoffigures
 \addcontentsline{toc}{section}{\headingValue}
 \newpage
 
-% table of tables
+% list of tables
 \renewcommand{\headingValue}{Tabellen}
 \renewcommand{\listtablename}{\headingValue}
 \listoftables
+\addcontentsline{toc}{section}{\headingValue}
+\newpage
+
+% list of code
+\renewcommand{\headingValue}{Quelltext}
+\renewcommand\listoflistingscaption{\headingValue}
+\listoflistings
 \addcontentsline{toc}{section}{\headingValue}
 \newpage
 
