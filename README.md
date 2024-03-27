@@ -1,9 +1,12 @@
 # NAK Transferleistungs LaTeX-Template <!-- omit in toc -->
 
-Ein Template für die Transferleistungen an der Nordakademie.
+Ein Template für die Transferleistungen an der Nordakademie, basierend auf dem [Visual Studio Code](https://code.visualstudio.com/) Extension [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 
 ## Inhalt <!-- omit in toc -->
 
+- [Anleitung](#anleitung)
+  - [Vorraussetzungen](#vorraussetzungen)
+  - [Nutzung](#nutzung)
 - [Kurzreferenz](#kurzreferenz)
   - [Simple Textformatierung](#simple-textformatierung)
     - [Fettgedruckt](#fettgedruckt)
@@ -32,6 +35,22 @@ Ein Template für die Transferleistungen an der Nordakademie.
   - [Listen](#listen)
     - [Befehl](#befehl)
     - [Listensymbol ändern](#listensymbol-ändern)
+
+
+# Anleitung
+
+## Vorraussetzungen
+
+- [Visual Studio Code](https://code.visualstudio.com/) installieren
+- Die [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) Extensions für Visual Studio installieren (das kann in VSC unter dem "Extensions" Tab erfolgen)
+- [Docker](https://docs.docker.com/get-docker/) installieren (FYI man benötigt keinen Account)
+
+## Nutzung
+
+1. Docker starten, die Docker Engine muss im hintergrund laufen
+2. VSC öffnen und den Ordner fürs Template öffnen
+   1. Ganz unten link auf den Button "Open a Remote Window" klicken
+   2. Oben die Option "Reopen in Container" anklicken
 
 # Kurzreferenz
 
