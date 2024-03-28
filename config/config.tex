@@ -67,7 +67,6 @@
 %% "Heading" is only written once, which can mitigate easily overseen errors
 \newcommand{\headingValue}{}
 
-
 % easy import for appendix
 \newcommand{\addAppendix}[3]{%
     % parameters:
@@ -102,5 +101,27 @@
 \renewcommand{\labelitemi}{\color{nakblue}\ding{228}}
 
 % minted
+
+%% define highlighting style
 \usemintedstyle{vs}
+
+%% custom listingscaption
 \renewcommand{\listingscaption}{Quelltext}
+
+%% global minted environment style
+\setminted{%
+    autogobble,
+    linenos, % enable line numbers
+    % numbers = left, % default none
+    % numbes is essentially the same as linenos exceot the side can be specified
+    tabsize = 4 % default 8
+}
+
+%% custom line numbers
+\renewcommand{\theFancyVerbLine}{%
+    \textcolor{gray}{%
+        \ttfamily
+        \scriptsize
+        \oldstylenums{\arabic{FancyVerbLine}}
+    }
+}
