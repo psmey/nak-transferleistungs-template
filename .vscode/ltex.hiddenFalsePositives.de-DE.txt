@@ -1,0 +1,1 @@
+{"rule":"FRAGEZEICHEN_STATT_PUNKT","sentence":"^\\QMuss separat über das Makro \\E(?:Dummy|Ina|Jimmy-)[0-9]+\\Q angepasst werden.\\E$"}

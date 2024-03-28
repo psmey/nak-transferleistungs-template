@@ -1,11 +1,11 @@
 # NAK Transferleistungs LaTeX-Template <!-- omit in toc -->
 
-Ein Template für die Transferleistungen an der Nordakademie, basierend auf dem [Visual Studio Code](https://code.visualstudio.com/) Extension [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
+Ein Template für die Transferleistungen an der Nordakademie, basierend auf der [Visual Studio Code](https://code.visualstudio.com/) Erweiterung [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 
 ## Inhalt <!-- omit in toc -->
 
 - [Anleitung](#anleitung)
-  - [Vorraussetzungen](#vorraussetzungen)
+  - [Voraussetzungen](#voraussetzungen)
   - [Nutzung](#nutzung)
 - [Kurzreferenz](#kurzreferenz)
   - [Simple Textformatierung](#simple-textformatierung)
@@ -35,30 +35,35 @@ Ein Template für die Transferleistungen an der Nordakademie, basierend auf dem 
   - [Listen](#listen)
     - [Befehl](#befehl)
     - [Listensymbol ändern](#listensymbol-ändern)
-  - [Codeblöcke](#codeblöcke)
-    - [Codeblock im Text](#codeblock-im-text)
-    - [Styling](#styling)
-    - [Quelltextverzeichnis](#quelltextverzeichnis)
-    - [Quelltextüberschrift](#quelltextüberschrift)
+  - [Code](#code)
+    - [Verwendung](#verwendung)
+      - [Codeblöcke als Listing](#codeblöcke-als-listing)
+      - [Code innerhalb einer Zeile](#code-innerhalb-einer-zeile)
+    - [Anpassungen](#anpassungen)
+      - [Quelltextverzeichnis](#quelltextverzeichnis)
+      - [Quelltextüberschrift](#quelltextüberschrift)
+      - [Syntax-Highlighting](#syntax-highlighting)
+      - [Codeblock](#codeblock)
+      - [Zeilennummerierung der Codeblöcke](#zeilennummerierung-der-codeblöcke)
 
 # Anleitung
 
-## Vorraussetzungen
+## Voraussetzungen
 
-- [Visual Studio Code](https://code.visualstudio.com/) installieren
-- Die [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) Extensions für Visual Studio installieren (das kann in VSC unter dem "Extensions" Tab erfolgen)
-- [Docker](https://docs.docker.com/get-docker/) installieren (FYI man benötigt keinen Account)
+- [Visual Studio Code](https://code.visualstudio.com/) installieren.
+- Die [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) Erweiterung für Visual Studio Code installieren (das kann in VSC unter dem "Extensions" Tab erfolgen).
+- [Docker](https://docs.docker.com/get-docker/) installieren (FYI man benötigt keinen Account).
 
 ## Nutzung
 
-1. Docker starten, die Docker Engine muss im hintergrund laufen
-2. VSC öffnen und den Ordner fürs Template öffnen
-   1. Ganz unten link auf den Button "Open a Remote Window" klicken
-   2. Oben die Option "Reopen in Container" anklicken
+1. Docker starten, die Docker Engine muss im Hintergrund laufen.
+2. Visual Studio Code öffnen und den Ordner fürs Template öffnen.
+   1. Ganz unten links auf den Button "Open a Remote Window" klicken.
+   2. Oben die Option "Reopen in Container" anklicken.
 
 # Kurzreferenz
 
-Die Kurzreferenz ist eine Sammlung an Informationen, die ich regelmäßig gebraucht habe und hier abgelegt habe damit sie nicht immer neu recherchiert werden müssen, wenn man nach ein paar Monaten sie wieder vergessen hat. Das hier gezeigte ist auch teilweise in den Beispiel-Dateien bzw. -Code zu finden.
+Die Kurzreferenz ist eine Sammlung an Informationen, die ich regelmäßig gebraucht und hier abgelegt habe, damit ich sie nicht immer neu recherchieren muss, wenn man nach ein paar Monaten sie wieder vergessen hat. Das hier gezeigte ist auch teilweise in den Beispiel-Dateien bzw. -Code zu finden.
 
 ## Simple Textformatierung
 
@@ -449,37 +454,37 @@ TBD
 \renewcommand{\labelitemi}{<symbol>}
 ```
 
-## Codeblöcke
+## Code
 
 Codeblöcke werden mit dem Paket [minted](https://www.ctan.org/tex-archive/macros/latex/contrib/minted/) realisiert.
 
-### Codeblock im Text
+### Verwendung
+
+#### Codeblöcke als Listing
 
 ```latex
 \begin{listing}[H]
-    \begin{minted}[
-        numbers = left
-    ]{c}
-int main() {
-    // print hello world
-    printf("hello, world");
-    return 0;
-}
+    \begin{minted}{c} % sprache festlegen (hier c)
+        int main() {
+            // print hello world
+            printf("hello, world!");
+            return 0;
+        }
     \end{minted}
     \caption{Hello world in C}
     \label{lst:listing}
 \end{listing}
 ```
 
-### Styling
-
-Festgelegt in `config/config.tex`
+#### Code innerhalb einer Zeile
 
 ```latex
-\usemintedstyle{vs}
+\mintinline{c}|int i = 1|.
 ```
 
-### Quelltextverzeichnis
+### Anpassungen
+
+#### Quelltextverzeichnis
 
 Festgelegt in `src/transferleinstung/transferleistung.tex`
 
@@ -492,10 +497,48 @@ Festgelegt in `src/transferleinstung/transferleistung.tex`
 \newpage
 ```
 
-### Quelltextüberschrift
+#### Quelltextüberschrift
 
 Festgelegt in `config/config.tex`
 
 ```latex
 \renewcommand{\listingscaption}{Quelltext}
+```
+
+#### Syntax-Highlighting
+
+Festgelegt in `config/config.tex`
+
+```latex
+\usemintedstyle{vs}
+```
+
+#### Codeblock
+
+Festgelegt in `config/config.tex`
+
+```latex
+\setminted{%
+    autogobble,
+    linenos, % enable line numbers
+    % numbers = left, % default none
+    % numbes is essentially the same as linenos exceot the side can be specified
+    tabsize = 4 % default 8
+}
+```
+
+#### Zeilennummerierung der Codeblöcke
+
+Festgelegt in `config/config.tex`
+
+Muss separat über das Makro `\theFancyVerbLine` angepasst werden.
+
+```latex
+\renewcommand{\theFancyVerbLine}{%
+    \textcolor{gray}{%
+        \ttfamily
+        \scriptsize
+        \oldstylenums{\arabic{FancyVerbLine}}
+    }
+}
 ```
