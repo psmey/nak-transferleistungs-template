@@ -72,19 +72,17 @@
 \backmatter{} % reapply pagenumbering from frontmatter
 
 % bibliography
-%\renewcommand{\headingValue}{Literatur}
-\printbibliography{}
-%\addcontentsline{toc}{section}{\headingValue}
+\printbibliography[heading=bibintoc]
+
 \newpage
 
+\appendix
 \centering
 
-\renewcommand{\headingValue}{Anhang}
-\section*{\headingValue}
-\addcontentsline{toc}{section}{\headingValue}
+\section{Anhang}
 
-\addAppendix{Beispiel Anhang}{LaTeX_CheatSheet.pdf}{pages=-}
+\addAppendix{Beispiel Anhang}{LaTeX_CheatSheet.pdf}{app:anhang1}{pages=-}
 
-\addAppendix{Beispiel Anhang 2}{LaTeX_CheatSheet.pdf}{pages=-}
+\addAppendix{Beispiel Anhang 2}{LaTeX_CheatSheet.pdf}{app:anhang2}{pages=-}
 
 \end{document}
