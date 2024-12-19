@@ -18,40 +18,44 @@ jobs:
           - name: template
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+    - name: Set up Git repository
+        uses: actions/checkout@v4
 
-    - name: Build eidestattliche_erklärung for ${{matrix.document.name}}
-      uses: xu-cheng/latex-action@v3
-      with:
-        root_file: eidestattliche_erklärung.tex
-        working_directory: src/${{matrix.document.name}}/eidestattliche_erklärung
-        latexmk_use_lualatex: true
-        latexmk_shell_escape: true
-
-    - name: Build transferleistung for ${{matrix.document.name}}
+    - name: Compile transferleistung for ${{matrix.document.name}}
       uses: xu-cheng/latex-action@v3
       with:
         root_file: transferleistung.tex
         working_directory: src/${{matrix.document.name}}/transferleistung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
+        continue_on_error: true
 
-    - name: Build auftragsklärung for ${{matrix.document.name}}
+    - name: Compile auftragsklärung for ${{matrix.document.name}}
       uses: xu-cheng/latex-action@v3
       with:
         root_file: auftragsklärung.tex
         working_directory: src/${{matrix.document.name}}/auftragsklärung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
+        continue_on_error: true
 
-    - name: Build selbstreflexion for ${{matrix.document.name}}
+    - name: Compile selbstreflexion for ${{matrix.document.name}}
       uses: xu-cheng/latex-action@v3
       with:
         root_file: selbstreflexion.tex
         working_directory: src/${{matrix.document.name}}/selbstreflexion
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
+        continue_on_error: true
+
+    - name: Compile eidestattliche_erklärung for ${{matrix.document.name}}
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: eidestattliche_erklärung.tex
+        working_directory: src/${{matrix.document.name}}/eidestattliche_erklärung
+        latexmk_use_lualatex: true
+        latexmk_shell_escape: true
+        continue_on_error: true
 
     - name: Upload artifacts for ${{ matrix.document.name }}
       uses: actions/upload-artifact@v4
