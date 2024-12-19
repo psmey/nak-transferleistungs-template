@@ -183,8 +183,6 @@ FYI der Befehl ist in `/src/internal/config.tex` zu finden.
 
 Weiter schnelle Informationen über [BibLaTeX](https://www.ctan.org/pkg/biblatex) sind [hier](https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management#biblatex) zu finden.
 
-> Wenn zwei Attribute von einander mit einem `/` getrennt sind (z. B. `year/date = {},`) muss sich für eins entschieden werden.
-
 ### Quelle hinzufügen
 
 Quellen-Codeblöcke werden in die Datei `/src/internal/bibliography.bib` eingefügt.
@@ -199,7 +197,7 @@ zusammen gearbeitet haben.
   % pflicht
   author = {},
   title = {},
-  year/date = {},
+  date = {},
 
   % optional
   editor = {},
@@ -241,6 +239,7 @@ zusammen gearbeitet haben.
   eprinttype = {},
   url = {},
   urldate = {},
+  year = {},
 }
 ```
 
@@ -257,7 +256,7 @@ Periodikum, welches einen eigenen Abschnitt mit einem eigenen Titel erhält.
   author={},
   title={},
   journaltitle={},
-  year/date={},
+  date={},
 
   % optional
   editor = {},
@@ -299,6 +298,7 @@ Periodikum, welches einen eigenen Abschnitt mit einem eigenen Titel erhält.
   eprinttype = {},
   url = {},
   urldate = {},
+  year = {},
 }
 ```
 
@@ -310,12 +310,16 @@ Zu beachten ist, dass alle Eingabetypen das url-Feld unterstützen. Zum Beispiel
 ```bibtex
 @online{<id>,
   % plficht
-  author/editor = {},
+  author = {},
   title = {},
-  year/date = {},
-  doi/eprint/url = {},
+  date = {},
+  url = {},
+  urldate = {},
 
   % optional
+  doi = {},
+  eprint = {},
+  editor = {},
   subtitle = {},
   titleaddon = {},
   language = {},
@@ -327,7 +331,7 @@ Zu beachten ist, dass alle Eingabetypen das url-Feld unterstützen. Zum Beispiel
   pubstate = {},
   eprintclass = {},
   eprinttype = {},
-  urldate = {},
+  year = {},
 }
 ```
 
@@ -345,7 +349,7 @@ Es sollte auch `unpublished` erwähnt werden, jedoch fehlt da das `organization`
   % pflicht
   author/editor = {},
   title = {},
-  year/date = {},
+  date = {},
 
   % optional
   subtitle = {},

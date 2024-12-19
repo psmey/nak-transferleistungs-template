@@ -1,12 +1,12 @@
 \documentclass[12pt]{article}
 
 % internal inputs
-\input{../../config/packages.tex}
-\input{../../config/config.tex}
-\input{../../config/acronyms.tex}
-\input{../../config/env.tex}
+\input{../../../config/packages.tex}
+\input{../../../config/config.tex}
+\input{../acronyms.tex}
+\input{../../../config/env.tex}
 
-\setlength{\textheight}{23.7cm} % make more space for deckblatt footer
+\setlength{\textheight}{22.5cm} % make more space for deckblatt footer
 
 \begin{document}
 
@@ -15,8 +15,9 @@
 \fancyhf{} % clear header and footer content
 \fancyhead[C]{\includegraphics[width=\textwidth]{header.png}} % add header content
 
-\setlength{\textheight}{25.2cm} % restore original footer height
 \input{deckblatt.tex}
+\setlength{\textheight}{24.5cm} % restore original footer height
+\newpage
 
 % footer
 \fancyfoot{} % clear footer content
@@ -31,37 +32,33 @@
 \newpage
 
 % list of figures
-\renewcommand{\headingValue}{Abbildungen}
-\renewcommand{\listfigurename}{\headingValue}
+\renewcommand{\listfigurename}{Abbildungen}
 \listoffigures
-\addcontentsline{toc}{section}{\headingValue}
 \newpage
 
 % list of tables
-\renewcommand{\headingValue}{Tabellen}
-\renewcommand{\listtablename}{\headingValue}
+\renewcommand{\listtablename}{Tabellen}
 \listoftables
-\addcontentsline{toc}{section}{\headingValue}
 \newpage
 
 % list of code
-\renewcommand{\headingValue}{Quelltext}
-\renewcommand\listoflistingscaption{\headingValue}
+\def\listoflistingsCaptionValue{Quelltext}
+\renewcommand\listoflistingscaption{\listoflistingsCaptionValue}
 \listoflistings
-\addcontentsline{toc}{section}{\headingValue}
+\addcontentsline{toc}{section}{\listoflistingsCaptionValue}
 \newpage
 
 % acronyms
-\renewcommand{\headingValue}{Abkürzungen}
+\def\acronymsCaptionValue{Abkürzungen}
 \printacronyms[
     template=tabular, % use a table like formatting for acronyms list
-    name=\headingValue{} % set heading
+    name=\acronymsCaptionValue % set heading
 ]{}
-\addcontentsline{toc}{section}{\headingValue}
+\addcontentsline{toc}{section}{\acronymsCaptionValue}
 \newpage
 
 % mainmatter
-\mainmatter{} % start pagenumbering of mainmatter
+\mainmatter % start pagenumbering of mainmatter
 
 %% content
 \input{content.tex}
@@ -69,7 +66,7 @@
 \newpage
 
 % backmatter
-\backmatter{} % reapply pagenumbering from frontmatter
+\backmatter % reapply pagenumbering from frontmatter
 
 % bibliography
 \printbibliography[heading=bibintoc]
@@ -77,12 +74,23 @@
 \newpage
 
 \appendix
-\centering
 
 \section{Anhang}
 
-\addAppendix{Beispiel Anhang}{LaTeX_CheatSheet.pdf}{app:anhang1}{pages=-}
+\subsection{Beispiel Anhang} % Heading for appendix
+\label{app:bsp_anhang}
+\newpage
+\appendixmatter
+\includepdf[pages=-]{../assets/appendix/LaTeX_CheatSheet.pdf} % add pdf into main
+\backmatter % set correct page value, to not count appendix pages
 
-\addAppendix{Beispiel Anhang 2}{LaTeX_CheatSheet.pdf}{app:anhang2}{pages=-}
+\newpage
+
+\subsection{Beispiel Anhang 2} % Heading for appendix
+\label{app:bsp_anhang_2}
+\newpage
+\appendixmatter
+\includepdf[pages=-]{../assets/appendix/LaTeX_CheatSheet.pdf} % add pdf into main
+\backmatter % set correct page value, to not count appendix pages
 
 \end{document}

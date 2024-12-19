@@ -1,8 +1,8 @@
 % document parameters
-% you should probably never touch this file, even i forgot some parts of it
+% you should probably never touch this file, even I forgot some parts of it
 % this kinda just accumulated in configurations over the last years
 % if you really need to change something... good luck...
-% but i've tried to document it as good as I could
+% but i've tried to document it as good as I could!
 
 % Colors (HEX)
 % \definecolor{naklightblue}{HTML}{3cd2ff}
@@ -14,10 +14,10 @@
 \definecolor{nakorange}{HTML}{ffa064}
 
 % set graphics path
-\graphicspath{{../../assets/images}}
+\graphicspath{{../assets/images}}
 
 % import bibliography
-\addbibresource{../../config/bibliography.bib}
+\addbibresource{../bibliography.bib}
 
 % header and footer
 %% macros (need to be changed with \renewcommand)
@@ -26,8 +26,8 @@
 \renewcommand{\footrulewidth}{0pt} % set thickness of a line above the footer
 \renewcommand{\footruleskip}{0cm} % set the distance between the line and the footer text, only visual, does not impact footer hight
 
-\setlength{\headsep}{1cm}
-\setlength{\headheight}{23.06001pt}
+\setlength{\headsep}{1.25cm}
+\setlength{\headheight}{24pt}
 
 % page layout
 \geometry{%
@@ -69,30 +69,6 @@
     \setcounter{frontmatterPage}{\value{page}}
     \setcounter{page}{1}
     \pagenumbering{arabic}
-}
-
-% enable \renewcommand for heading values
-%% Through this command a single source of truth is created for sections
-%% where the heading needs to be written more than once like:
-%%% \renewcommand{\headingValue}{Heading}
-%%% \subsection*{\headingValue{}}
-%%% \addcontentsline{toc}{subsection}{\headingValue{}}
-%% "Heading" is only written once, which can mitigate easily overseen errors
-\newcommand{\headingValue}{}
-
-% easy import for appendix
-\newcommand{\addAppendixPdf}[4]{%
-    % parameters:
-    % #1: appendix heading
-    % #2: filename
-    % #3: label for reference
-    % #4: include pdf parameters
-    \subsection{#1} % Heading for appendix
-    \label{#3}
-    %\addcontentsline{toc}{subsection}{#1} % register appendix in toc
-    \setcounter{frontmatterPage}{\value{page} + 1} % safe page value
-    \includepdf[#4]{../assets/appendix/#2} % add pdf into main
-    \backmatter{} % set correct page value, to not count appendix pages
 }
 
 \newcommand{\addAppendixTex}[3]{%
@@ -175,6 +151,7 @@
 }
 
 % biblatex
+
 \DefineBibliographyStrings{ngerman}{andothers={et al.}}
 \DefineBibliographyStrings{english}{andothers={et al.}}
 
