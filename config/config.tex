@@ -1,9 +1,17 @@
 % document parameters
+% you should probably never touch this file, even i forgot some parts of it
+% this kinda just accumulated in configurations over the last years
+% if you really need to change something... good luck...
+% but i've tried to document it as good as I could
 
 % Colors (HEX)
-\definecolor{naklightblue}{HTML}{3cd2ff}
+% \definecolor{naklightblue}{HTML}{3cd2ff}
+% \definecolor{nakblue}{HTML}{003a79}
+% \definecolor{nakdarkblue}{HTML}{0f192d}
 \definecolor{nakblue}{HTML}{003a79}
 \definecolor{nakdarkblue}{HTML}{0f192d}
+\definecolor{naklightblue}{HTML}{3cd2ff}
+\definecolor{nakorange}{HTML}{ffa064}
 
 % set graphics path
 \graphicspath{{../../assets/images}}
@@ -14,23 +22,22 @@
 % header and footer
 %% macros (need to be changed with \renewcommand)
 \renewcommand{\headrulewidth}{0pt} % set thickness of a line under the header
-\renewcommand{\headruleskip}{0em} % set the distance between the line and the header text, only visual, does not impact header hight
+\renewcommand{\headruleskip}{0cm} % set the distance between the line and the header text, only visual, does not impact header hight
 \renewcommand{\footrulewidth}{0pt} % set thickness of a line above the footer
-\renewcommand{\footruleskip}{0em} % set the distance between the line and the footer text, only visual, does not impact footer hight
+\renewcommand{\footruleskip}{0cm} % set the distance between the line and the footer text, only visual, does not impact footer hight
 
-\setlength{\headsep}{1em}
-\setlength{\headheight}{47.07607pt}
+\setlength{\headsep}{1cm}
+\setlength{\headheight}{23.06001pt}
 
 % page layout
 \geometry{%
     a4paper,
     margin=2cm,
-    top=2.5cm,
+    top=3cm,
 }
 
 % font
 \renewcommand*\familydefault{\sfdefault} % set base font of the document to sans serif
-
 
 % heading formats
 \newcommand{\headingStandardFormat}{\color{nakblue}\textbf{}}
@@ -58,6 +65,12 @@
     \setcounter{page}{\value{frontmatterPage}} % set pagenumbering to frontmatter counter
 }
 
+\newcommand{\appendixmatter}{
+    \setcounter{frontmatterPage}{\value{page}}
+    \setcounter{page}{1}
+    \pagenumbering{arabic}
+}
+
 % enable \renewcommand for heading values
 %% Through this command a single source of truth is created for sections
 %% where the heading needs to be written more than once like:
@@ -68,11 +81,12 @@
 \newcommand{\headingValue}{}
 
 % easy import for appendix
-\newcommand{\addAppendix}[4]{%
+\newcommand{\addAppendixPdf}[4]{%
     % parameters:
     % #1: appendix heading
     % #2: filename
-    % #3: include pdf parameters
+    % #3: label for reference
+    % #4: include pdf parameters
     \subsection{#1} % Heading for appendix
     \label{#3}
     %\addcontentsline{toc}{subsection}{#1} % register appendix in toc
@@ -81,21 +95,17 @@
     \backmatter{} % set correct page value, to not count appendix pages
 }
 
-\newcommand{\nakQuestionTabular}[2]{%
-    \renewcommand{\arraystretch}{1.5} % change vertical padding of the table
-
-    \begin{tabularx}
-        {\textwidth} % specify table width
-        {| X |} % collumn rules, X fills space to collumn width
-        \hline
-        \rowcolor{nakblue}
-        \textcolor{white}{#1} \\
-        \hline
-        #2                    \\
-        \hline
-    \end{tabularx}
-
-    \renewcommand{\arraystretch}{1} % change vertical padding of the table
+\newcommand{\addAppendixTex}[3]{%
+    % parameters:
+    % #1: appendix heading
+    % #2: filename
+    % #3: label for reference
+    \section{#1} % Heading for appendix
+    \label{#3}
+    %\addcontentsline{toc}{subsection}{#1} % register appendix in toc
+    \setcounter{frontmatterPage}{\value{page} + 1} % safe page value
+    \input{../assets/appendix/#2} % add pdf into main
+    \backmatter{} % set correct page value, to not count appendix pages
 }
 
 % list symbol
@@ -104,10 +114,10 @@
 % minted
 
 %% define highlighting style
-\usemintedstyle{vs}
+\usemintedstyle{colorful}
 
 %% custom listingscaption
-\renewcommand{\listingscaption}{Quelltext}
+\renewcommand{\listingscaption}{Quelltexte}
 
 %% global minted environment style
 \setminted{%
@@ -115,19 +125,20 @@
     linenos, % enable line numbers
     % numbers = left, % default none
     % numbes is essentially the same as linenos exceot the side can be specified
-    tabsize = 4 % default 8
+    tabsize = 4, % default 8
+    xleftmargin=3.5em
 }
 
 %% custom line numbers
 \renewcommand{\theFancyVerbLine}{%
     \textcolor{gray}{%
         \ttfamily
-        \scriptsize
-        \oldstylenums{\arabic{FancyVerbLine}}
+        \arabic{FancyVerbLine}
     }
 }
 
 % hyperref
+
 \hypersetup{%
     breaklinks=true, % default value: false
     colorlinks=true, % default value: false
@@ -138,3 +149,36 @@
     urlcolor=black, % default value: magenta
     bookmarksopen=true,
 }
+
+\addto\extrasngerman{%
+    \crefname{section}{Abschnitt}{Abschnitte} % Singular und Plural für Anhänge
+    \Crefname{section}{Abschnitt}{Abschnitte} % Großbuchstaben-Version für Anhänge
+    \crefname{figure}{Abbildung}{Abbildungen}
+    \Crefname{figure}{Abbildung}{Abbildungen}
+    \crefname{table}{Tabelle}{Tabellen}
+    \Crefname{table}{Tabelle}{Tabellen}
+    \crefname{lstlisting}{Quelltext}{\listingscaption}
+    \Crefname{lstlisting}{Quelltext}{\listingscaption}
+    \crefname{appendix}{Anhang}{Anhänge}
+    \Crefname{appendix}{Anhang}{Anhänge}
+}
+
+% tabularray
+
+\DefTblrTemplate{contfoot-text}{default}{Fortgesetzt auf der nächsten Seite}
+
+\NewTblrTheme{appendix}{
+    \DefTblrTemplate{conthead-text}{default}{}
+    \DefTblrTemplate{caption}{default}{}
+    \DefTblrTemplate{conthead}{default}{}
+    \DefTblrTemplate{capcont}{default}{}
+}
+
+% biblatex
+\DefineBibliographyStrings{ngerman}{andothers={et al.}}
+\DefineBibliographyStrings{english}{andothers={et al.}}
+
+\renewbibmacro*{date}{%
+    \iffieldundef{date}
+    {\bibstring{nodate}}
+    {\printdate}}

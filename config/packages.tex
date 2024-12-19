@@ -4,7 +4,7 @@
 \usepackage{fancyhdr} % to create headers
 \usepackage{graphicx} % for graphic usage
 \usepackage{geometry} % for page margins
-\usepackage[OT1]{fontenc} % enable european encoding and font
+\usepackage{fontspec} % enable european encoding and font
 \usepackage{sectsty} % enable heading command formatting
 \usepackage[english, ngerman]{babel} % enable syllable separation (the last language is the selected document langue)
 \usepackage{colortbl} % to use colors in tables
@@ -13,12 +13,19 @@
 \usepackage{pdfpages} % to import pdfs into the document
 \usepackage{subcaption} % allow images arrays with subfigures
 \usepackage{csquotes} % for consistent quoting
-\usepackage[style=authoryear]{biblatex} % better bibliography
+\usepackage[style=authoryear, dashed=false, maxcitenames=2]{biblatex} % better bibliography
 \usepackage{float} % allows for [H] option for figures, which actually enforces position in text
-\usepackage[outputdir=../../build]{minted} % for display of code blocks
+\usepackage{minted} % for display of code blocks
 \usepackage{hyperref} % for links in general and table of content to heading linking
 \usepackage{wrapfig} % enables wrap figures
 \usepackage[export]{adjustbox} % enables trimming of graphics
+\usepackage[colorinlistoftodos, prependcaption, textsize=tiny]{todonotes}
+\usepackage{pgfplots} % charts and plots
+\usepackage{longtable}
+\usepackage{cleveref}
+\usepackage{emoji}
+\usepackage{tabularray}
+\usepackage{tocbibind} % show table of contents in table of contents
 
 % special characters
 % http://mirrors.ctan.org/info/symbols/comprehensive/symbols-a4.pdf

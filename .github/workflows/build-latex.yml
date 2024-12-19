@@ -1,0 +1,68 @@
+name: Build and Release LaTeX Documents
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Build expose
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: expose.tex
+        working_directory: src/expose
+        latexmk_use_lualatex: true
+        latexmk_shell_escape: true
+        args: >
+          -synctex=1
+          -interaction=nonstopmode
+          -file-line-error
+          -outdir=../../build
+
+    - name: Build bachelorarbeit
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: bachelorarbeit.tex
+        working_directory: src/bachelorarbeit
+        latexmk_use_lualatex: true
+        latexmk_shell_escape: true
+        args: >
+          -synctex=1
+          -interaction=nonstopmode
+          -file-line-error
+          -outdir=../../build
+
+    - name: Upload PDFs as artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: PDFs
+        path: |
+          build/expose.pdf
+          build/bachelorarbeit.pdf
+
+    - name: Create or Update GitHub Release
+      if: ${{ github.ref == 'refs/heads/main' }}
+      uses: ncipollo/release-action@v1
+      with:
+        tag: latest
+        name: "LaTeX Documents"
+        body: |
+          This release contains the latest compiled LaTeX documents.
+        draft: false
+        prerelease: false
+        replacesArtifacts: true
+        allowUpdates: true
+        artifacts: |
+          build/expose.pdf
+          build/bachelorarbeit.pdf

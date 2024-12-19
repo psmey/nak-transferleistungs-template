@@ -2,49 +2,55 @@
 
 Ein Template für die Transferleistungen an der Nordakademie, basierend auf der [Visual Studio Code](https://code.visualstudio.com/) Erweiterung [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)
 
-## Inhalt <!-- omit in toc -->
+## Inhalt
 
-- [Anleitung](#anleitung)
-  - [Voraussetzungen](#voraussetzungen)
-  - [Nutzung](#nutzung)
-- [Kurzreferenz](#kurzreferenz)
-  - [Simple Textformatierung](#simple-textformatierung)
-    - [Fettgedruckt](#fettgedruckt)
-    - [Kursiv](#kursiv)
-    - [Unterstrichen](#unterstrichen)
-  - [Abkürzungen](#abkürzungen)
-    - [Erstellen](#erstellen)
-    - [Im Text verwenden](#im-text-verwenden)
-  - [Anhänge](#anhänge)
-  - [Bibliografie](#bibliografie)
-    - [Quelle hinzufügen](#quelle-hinzufügen)
-      - [Book](#book)
-      - [Article](#article)
-      - [Online](#online)
-      - [Misc (Interne Quellen/Präsentationen)](#misc-interne-quellenpräsentationen)
-    - [Zitieren](#zitieren)
-      - [indirektes Zitieren](#indirektes-zitieren)
-      - [direkte Zitate](#direkte-zitate)
-  - [ChkTeX](#chktex)
-    - [Unterdrücken von Warnungen](#unterdrücken-von-warnungen)
-  - [Grafiken](#grafiken)
-    - [Im Dokument verwenden](#im-dokument-verwenden)
-    - [Subfigures](#subfigures)
-    - [Grafiken Referenzieren](#grafiken-referenzieren)
-  - [Tabellen](#tabellen)
-  - [Listen](#listen)
-    - [Befehl](#befehl)
-    - [Listensymbol ändern](#listensymbol-ändern)
-  - [Code](#code)
-    - [Verwendung](#verwendung)
-      - [Codeblöcke als Listing](#codeblöcke-als-listing)
-      - [Code innerhalb einer Zeile](#code-innerhalb-einer-zeile)
-    - [Anpassungen](#anpassungen)
-      - [Quelltextverzeichnis](#quelltextverzeichnis)
-      - [Quelltextüberschrift](#quelltextüberschrift)
-      - [Syntax-Highlighting](#syntax-highlighting)
-      - [Codeblock](#codeblock)
-      - [Zeilennummerierung der Codeblöcke](#zeilennummerierung-der-codeblöcke)
+- [Inhalt](#inhalt)
+- [Voraussetzungen](#voraussetzungen)
+- [Nutzung](#nutzung)
+- [Simple Textformatierung](#simple-textformatierung)
+  - [Fettgedruckt](#fettgedruckt)
+  - [Kursiv](#kursiv)
+  - [Unterstrichen](#unterstrichen)
+  - [Inline Code ohne Syntax-Highlighting](#inline-code-ohne-syntax-highlighting)
+- [Abkürzungen](#abkürzungen)
+  - [Erstellen](#erstellen)
+  - [Im Text verwenden](#im-text-verwenden)
+- [Cross referencing](#cross-referencing)
+  - [Usage](#usage)
+    - [Vollständiges Label](#vollständiges-label)
+  - [Label Abkürzungen Tabelle](#label-abkürzungen-tabelle)
+- [Anhänge](#anhänge)
+- [Bibliografie](#bibliografie)
+  - [Quelle hinzufügen](#quelle-hinzufügen)
+    - [Book](#book)
+    - [Article](#article)
+    - [Online](#online)
+    - [Misc (Interne Quellen/Präsentationen)](#misc-interne-quellenpräsentationen)
+  - [Zitieren](#zitieren)
+    - [indirektes Zitieren](#indirektes-zitieren)
+    - [direkte Zitate](#direkte-zitate)
+- [ChkTeX](#chktex)
+  - [Unterdrücken von Warnungen](#unterdrücken-von-warnungen)
+- [Grafiken](#grafiken)
+  - [Im Dokument verwenden](#im-dokument-verwenden)
+    - [Bild trimmen](#bild-trimmen)
+  - [Subfigures](#subfigures)
+  - [Textwrapping](#textwrapping)
+  - [Grafiken Referenzieren](#grafiken-referenzieren)
+- [Tabellen](#tabellen)
+- [Listen](#listen)
+  - [Befehl](#befehl)
+  - [Listensymbol ändern](#listensymbol-ändern)
+- [Code](#code)
+  - [Verwendung](#verwendung)
+    - [Codeblöcke als Listing](#codeblöcke-als-listing)
+    - [Code innerhalb einer Zeile](#code-innerhalb-einer-zeile)
+  - [Anpassungen](#anpassungen)
+    - [Quelltextverzeichnis](#quelltextverzeichnis)
+    - [Quelltextüberschrift](#quelltextüberschrift)
+    - [Syntax-Highlighting](#syntax-highlighting)
+    - [Codeblock](#codeblock)
+    - [Zeilennummerierung der Codeblöcke](#zeilennummerierung-der-codeblöcke)
 
 # Anleitung
 
@@ -91,6 +97,14 @@ Das ist ein Beispiel für <u>Unterstrichen</u>.
 \underline{<text>}
 ```
 
+### Inline Code ohne Syntax-Highlighting
+
+Das ist ein Beispiel für `monospace`
+
+```tex
+\texttt{<text>}
+```
+
 ## Abkürzungen
 
 Für Abkürzungen wird das Paket `acro` verwendet, mehr Information dazu gibt es in der [Dokumentation](https://github.com/cgnieder/acro/blob/master/doc/acro-manual.pdf).
@@ -127,6 +141,33 @@ Eine Abkürzung wird wie folgt angelegt (in der Dokumentation gibt noch weitere 
 ```latex
 \acl{<id>} % -> <long>
 ```
+
+## Cross referencing
+
+### Usage
+
+#### Vollständiges Label
+
+```tex
+\cref{}
+```
+
+> Wird durch das Paket `hyperref` ermöglicht
+
+### Label Abkürzungen Tabelle
+
+| label | type |
+| --- | --- |
+| ch  | chapter |
+| sec |  section |
+| subsec |  subsection |
+| fig |  figure |
+| tab |  table |
+| eq | equation |
+| lst |  code listing |
+| itm |  enumerated list item |
+| alg |  algorithm |
+| app |  appendix subsection |
 
 ## Anhänge
 
@@ -391,6 +432,10 @@ Zum Beispiel
 
 Grafiken werden in `/assets/images/` abgelegt.
 
+| Verfügbare Dateiformate |
+| --- |
+| .png .jpg .pdf |
+
 ### Im Dokument verwenden
 
 ```latex
@@ -400,6 +445,19 @@ Grafiken werden in `/assets/images/` abgelegt.
   \caption{<caption text>} % Bildbeschreibung
   \label{<label>} % das lable um auf die Grafik zu referieren
 \end{figure}
+```
+
+#### Bild trimmen
+
+Anstelle von `\includegraphics[]{}` verwenden:
+
+```latex
+\adjincludegraphics[%
+  width=\linewidth,
+  trim={{.125\width} 0 {.125\width} 0},
+  % <left> <lower> <right> <upper>
+  clip%
+]{<file name>}
 ```
 
 ### Subfigures
@@ -424,6 +482,27 @@ Grafiken werden in `/assets/images/` abgelegt.
     \caption{<caption>}
     \label{<fig label>}
 \end{figure}
+```
+
+### Textwrapping
+
+>❗Wenn es keinen Text gibt, der die Grafik einschließt beeinflusst die Grafik die Überschriften des Dokuments auf unkontrollierbare Weise!
+
+| location | Description |
+| --- | --- |
+| r  R | right side of the text |
+| l  L |  left side of the text |
+| i  I |  inside edge–near the binding (in a twoside document) |
+| o  O |  outside edge–far from the binding |
+
+```latex
+\begin{wrapfigure}{<location>}{.3\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{<file name>}
+  \def\captionValue{<caption>}
+  \caption[\captionValue]{\captionValue{} <reference>}
+  \label{<label>}
+\end{wrapfigure}
 ```
 
 ### Grafiken Referenzieren

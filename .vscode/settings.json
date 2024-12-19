@@ -6,6 +6,10 @@
   "editor.formatOnSave": true,
   "editor.tabSize": 4,
   "editor.wordWrap": "wordWrapColumn",
+  // sometimes helpful to handle tables
+  // [latex]": {
+  //  "editor.wordWrap": "off",
+  // ,
   "files.autoSave": "onFocusChange",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -16,7 +20,7 @@
   "latex-workshop.intellisense.citation.backend": "biblatex",
   "latex-workshop.intellisense.update.aggressive.enabled": true,
   "latex-workshop.latex.autoBuild.run": "onSave",
-  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.autoClean.run": "onSucceeded",
   "latex-workshop.latex.bibDirs": [
     "%DIR%/../../config"
   ],
@@ -24,9 +28,10 @@
   "latex-workshop.latex.outDir": "%DIR%/../../build", // keeping workspace clean of build files
   "latex-workshop.latex.recipe.default": "latexmk", // only latex-workshop.latex.tools tool that has "-outdir=%OUTDIR%" arg
   "latex-workshop.linting.chktex.enabled": true, // LaTeX semantic checker https://www.ctan.org/pkg/chktex
-  "latex-workshop.linting.lacheck.enabled": true, // consistency checker for LaTeX documents
+  // "latex-workshop.linting.lacheck.enabled": true, // consistency checker for LaTeX documents but has many false positives...
   "latex-workshop.texcount.autorun": "onSave",
   "latex-workshop.texcount.interval": 100,
+  "latex-workshop.formatting.latex": "latexindent",
   "ltex.additionalRules.enablePickyRules": true,
   "ltex.additionalRules.motherTongue": "de-DE",
   "ltex.completionEnabled": true,
@@ -41,120 +46,11 @@
         "-interaction=nonstopmode",
         "-file-line-error",
         "-pdf",
+        "-pdflatex=lualatex",
         "-outdir=%OUTDIR%",
         "%DOC%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "lualatexmk",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-lualatex",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "xelatexmk",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-xelatex",
-        "-outdir=%OUTDIR%",
-        "%DOC%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "latexmk_rconly",
-      "command": "latexmk",
-      "args": [
-        "%DOC%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "pdflatex",
-      "command": "pdflatex",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "%DOC%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "bibtex",
-      "command": "bibtex",
-      "args": [
-        "%DOCFILE%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "rnw2tex",
-      "command": "Rscript",
-      "args": [
-        "-e",
-        "knitr::opts_knit$set(concordance = TRUE); knitr::knit('%DOCFILE_EXT%')"
-      ],
-      "env": {}
-    },
-    {
-      "name": "jnw2tex",
-      "command": "julia",
-      "args": [
-        "-e",
-        "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"
-      ],
-      "env": {}
-    },
-    {
-      "name": "jnw2texminted",
-      "command": "julia",
-      "args": [
-        "-e",
-        "using Weave; weave(\"%DOC_EXT%\", doctype=\"texminted\")"
-      ],
-      "env": {}
-    },
-    {
-      "name": "pnw2tex",
-      "command": "pweave",
-      "args": [
-        "-f",
-        "tex",
-        "%DOC_EXT%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "pnw2texminted",
-      "command": "pweave",
-      "args": [
-        "-f",
-        "texminted",
-        "%DOC_EXT%"
-      ],
-      "env": {}
-    },
-    {
-      "name": "tectonic",
-      "command": "tectonic",
-      "args": [
-        "--synctex",
-        "--keep-logs",
-        "%DOC%.tex"
       ],
       "env": {}
     }
-  ],
+  ]
 }
