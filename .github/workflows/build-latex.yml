@@ -21,13 +21,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Set TEXMF_OUTPUT_DIRECTORY
-      run: echo "TEXMF_OUTPUT_DIRECTORY=/github/workspace/build" >> $GITHUB_ENV
-
     - name: Build auftragsklärung for ${{matrix.document.name}}
       uses: xu-cheng/latex-action@v2
       with:
-        root_file: ${{matrix.document.name}}_auftragsklärung.tex
+        root_file: auftragsklärung.tex
         working_directory: src/${{matrix.document.name}}/auftragsklärung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
@@ -35,12 +32,12 @@ jobs:
           -synctex=1
           -interaction=nonstopmode
           -file-line-error
-          -outdir=../../../build
+          -outdir=.
 
     - name: Build eidestattliche_erklärung for ${{matrix.document.name}}
       uses: xu-cheng/latex-action@v2
       with:
-        root_file: ${{matrix.document.name}}_eidestattliche_erklärung.tex
+        root_file: eidestattliche_erklärung.tex
         working_directory: src/${{matrix.document.name}}/eidestattliche_erklärung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
@@ -48,12 +45,12 @@ jobs:
           -synctex=1
           -interaction=nonstopmode
           -file-line-error
-          -outdir=../../../build
+          -outdir=.
 
     - name: Build selbstreflexion for ${{matrix.document.name}}
       uses: xu-cheng/latex-action@v2
       with:
-        root_file: ${{matrix.document.name}}_selbstreflexion.tex
+        root_file: selbstreflexion.tex
         working_directory: src/${{matrix.document.name}}/selbstreflexion
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
@@ -61,12 +58,12 @@ jobs:
           -synctex=1
           -interaction=nonstopmode
           -file-line-error
-          -outdir=../../../build
+          -outdir=.
 
     - name: Build transferleistung for ${{matrix.document.name}}
       uses: xu-cheng/latex-action@v2
       with:
-        root_file: ${{matrix.document.name}}_transferleistung.tex
+        root_file: transferleistung.tex
         working_directory: src/${{matrix.document.name}}/transferleistung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
@@ -74,13 +71,13 @@ jobs:
           -synctex=1
           -interaction=nonstopmode
           -file-line-error
-          -outdir=../../../build
+          -outdir=.
 
     - name: Upload artifacts for ${{ matrix.document.name }}
       uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.document.name }} PDFs
-        path: build/${{matrix.document.name}}_*
+        path: src/${{matrix.document.name}}/
 
   release:
     runs-on: ubuntu-latest
@@ -108,4 +105,7 @@ jobs:
         replacesArtifacts: true
         allowUpdates: true
         artifacts: |
-          build/${{ matrix.document.name }}_*
+          src/${{ matrix.document.name }}/auftragsklärung/auftragsklärung.pdf
+          src/${{ matrix.document.name }}/eidestattliche_erklärung/eidestattliche_erklärung.pdf
+          src/${{ matrix.document.name }}/selbstreflexion/selbstreflexion.pdf
+          src/${{ matrix.document.name }}/transferleistung/transferleistung.pdf

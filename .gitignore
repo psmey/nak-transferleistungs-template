@@ -1,6 +1,12 @@
-# build files
-build/*
-_minted-*
+# ignore all src files
+src/**/*
 
-# logs
-*.log
+# don't ignore dirs again
+!src/**/
+
+# don't ignore .tex and .bib as only valid files
+!src/**/*.tex
+!src/**/*.bib
+
+# accept any files in assets
+!**/assets/**/*
