@@ -21,7 +21,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-
     - name: Build transferleistung for ${{matrix.document.name}}
       uses: xu-cheng/latex-action@v3
       with:
@@ -45,13 +44,6 @@ jobs:
         working_directory: src/${{matrix.document.name}}/eidestattliche_erklärung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
-        args: >
-          -synctex=1
-          -interaction=nonstopmode
-          -file-line-error
-          -outdir=.
-          -pdf
-          -f
 
     - name: Build selbstreflexion for ${{matrix.document.name}}
       uses: xu-cheng/latex-action@v3
@@ -60,13 +52,6 @@ jobs:
         working_directory: src/${{matrix.document.name}}/selbstreflexion
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
-        args: >
-          -synctex=1
-          -interaction=nonstopmode
-          -file-line-error
-          -outdir=.
-          -pdf
-          -f
 
     - name: Upload artifacts for ${{ matrix.document.name }}
       uses: actions/upload-artifact@v4
