@@ -16,26 +16,62 @@ jobs:
       matrix:
         document:
           - name: template
-            working_directory: src/template
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Build documents for ${{ matrix.document.name }}
-      shell: bash
-      run: |
-        additional_docs=( \
-          auftragsklärung.tex \
-          eidestattliche_erklärung.tex \
-          selbstreflexion.tex \
-          transferleistung.tex \
-        )
-        for doc in "${additional_docs[@]}"; do
-          latexmk -lualatex -shell-escape -synctex=1 -interaction=nonstopmode -file-line-error \
-                  -outdir="../../../build/${{ matrix.document.name }}" \
-                  "${{ matrix.document.working_directory }}/${doc}"
-        done
+    - name: Build auftragsklärung for ${{matrix.document.name}}
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: auftragsklärung.tex
+        working_directory: src/${{matrix.document.name}}
+        latexmk_use_lualatex: true
+        latexmk_shell_escape: true
+        args: >
+          -synctex=1
+          -interaction=nonstopmode
+          -file-line-error
+          -outdir=../../../build/${{matrix.document.name}}
+
+    - name: Build eidestattliche_erklärung for ${{matrix.document.name}}
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: eidestattliche_erklärung.tex
+        working_directory: src/${{matrix.document.name}}
+        latexmk_use_lualatex: true
+        latexmk_shell_escape: true
+        args: >
+          -synctex=1
+          -interaction=nonstopmode
+          -file-line-error
+          -outdir=../../../build/${{matrix.document.name}}
+
+    - name: Build selbstreflexion for ${{matrix.document.name}}
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: selbstreflexion.tex
+        working_directory: src/${{matrix.document.name}}
+        latexmk_use_lualatex: true
+        latexmk_shell_escape: true
+        args: >
+          -synctex=1
+          -interaction=nonstopmode
+          -file-line-error
+          -outdir=../../../build/${{matrix.document.name}}
+
+    - name: Build transferleistung for ${{matrix.document.name}}
+      uses: xu-cheng/latex-action@v2
+      with:
+        root_file: transferleistung.tex
+        working_directory: src/${{matrix.document.name}}
+        latexmk_use_lualatex: true
+        latexmk_shell_escape: true
+        args: >
+          -synctex=1
+          -interaction=nonstopmode
+          -file-line-error
+          -outdir=../../../build/${{matrix.document.name}}
 
     - name: Upload artifacts for ${{ matrix.document.name }}
       uses: actions/upload-artifact@v4
