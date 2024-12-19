@@ -15,68 +15,68 @@ jobs:
     strategy:
       matrix:
         document:
-          - name: template
+          - template
 
     steps:
     - name: Set up Git repository
-        uses: actions/checkout@v4
+      uses: actions/checkout@v4
 
-    - name: Compile transferleistung for ${{matrix.document.name}}
+    - name: Compile transferleistung for ${{matrix.document}}
       uses: xu-cheng/latex-action@v3
       with:
         root_file: transferleistung.tex
-        working_directory: src/${{matrix.document.name}}/transferleistung
+        working_directory: src/${{matrix.document}}/transferleistung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         continue_on_error: true
 
-    - name: Compile auftragsklärung for ${{matrix.document.name}}
+    - name: Compile auftragsklärung for ${{matrix.document}}
       uses: xu-cheng/latex-action@v3
       with:
         root_file: auftragsklärung.tex
-        working_directory: src/${{matrix.document.name}}/auftragsklärung
+        working_directory: src/${{matrix.document}}/auftragsklärung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         continue_on_error: true
 
-    - name: Compile selbstreflexion for ${{matrix.document.name}}
+    - name: Compile selbstreflexion for ${{matrix.document}}
       uses: xu-cheng/latex-action@v3
       with:
         root_file: selbstreflexion.tex
-        working_directory: src/${{matrix.document.name}}/selbstreflexion
+        working_directory: src/${{matrix.document}}/selbstreflexion
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         continue_on_error: true
 
-    - name: Compile eidestattliche_erklärung for ${{matrix.document.name}}
+    - name: Compile eidestattliche_erklärung for ${{matrix.documente}}
       uses: xu-cheng/latex-action@v3
       with:
         root_file: eidestattliche_erklärung.tex
-        working_directory: src/${{matrix.document.name}}/eidestattliche_erklärung
+        working_directory: src/${{matrix.document}}/eidestattliche_erklärung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         continue_on_error: true
 
-    - name: Upload artifacts for ${{ matrix.document.name }}
+    - name: Upload artifacts for ${{ matrix.document }}
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ matrix.document.name }} PDFs
-        path: src/${{matrix.document.name}}/
+        name: ${{ matrix.document }} PDFs
+        path: src/${{matrix.document}}/
 
   release:
     runs-on: ubuntu-latest
     needs: build
     strategy:
       matrix:
-        document:
-          - name: template
+        documents:
+          - template
     steps:
-    - name: Download artifacts for ${{ matrix.document.name }}
+    - name: Download artifacts for ${{ matrix.document }}
       uses: actions/download-artifact@v3
       with:
-        name: ${{ matrix.document.name }} PDFs
+        name: ${{ matrix.document }} PDFs
 
-    - name: Upload ${{ matrix.document.name }} bundle to GitHub Release
+    - name: Upload ${{ matrix.document }} bundle to GitHub Release
       if: ${{ github.ref == 'refs/heads/main' }}
       uses: ncipollo/release-action@v1
       with:
