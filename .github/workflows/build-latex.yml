@@ -21,6 +21,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+    - name: Build eidestattliche_erklärung for ${{matrix.document.name}}
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: eidestattliche_erklärung.tex
+        working_directory: src/${{matrix.document.name}}/eidestattliche_erklärung
+        latexmk_use_lualatex: true
+        latexmk_shell_escape: true
+
     - name: Build transferleistung for ${{matrix.document.name}}
       uses: xu-cheng/latex-action@v3
       with:
@@ -34,14 +42,6 @@ jobs:
       with:
         root_file: auftragsklärung.tex
         working_directory: src/${{matrix.document.name}}/auftragsklärung
-        latexmk_use_lualatex: true
-        latexmk_shell_escape: true
-
-    - name: Build eidestattliche_erklärung for ${{matrix.document.name}}
-      uses: xu-cheng/latex-action@v3
-      with:
-        root_file: eidestattliche_erklärung.tex
-        working_directory: src/${{matrix.document.name}}/eidestattliche_erklärung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
 
