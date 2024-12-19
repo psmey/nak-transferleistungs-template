@@ -12,57 +12,61 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        document:
+          - name: template
+            working_directory: src/template
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Build expose
-      uses: xu-cheng/latex-action@v2
-      with:
-        root_file: expose.tex
-        working_directory: src/expose
-        latexmk_use_lualatex: true
-        latexmk_shell_escape: true
-        args: >
-          -synctex=1
-          -interaction=nonstopmode
-          -file-line-error
-          -outdir=../../build
+    - name: Build documents for ${{ matrix.document.name }}
+      shell: bash
+      run: |
+        additional_docs=( \
+          auftragsklärung.tex \
+          eidestattliche_erklärung.tex \
+          selbstreflexion.tex \
+          transferleistung.tex \
+        )
+        for doc in "${additional_docs[@]}"; do
+          latexmk -lualatex -shell-escape -synctex=1 -interaction=nonstopmode -file-line-error \
+                  -outdir="../../../build/${{ matrix.document.name }}" \
+                  "${{ matrix.document.working_directory }}/${doc}"
+        done
 
-    - name: Build bachelorarbeit
-      uses: xu-cheng/latex-action@v2
-      with:
-        root_file: bachelorarbeit.tex
-        working_directory: src/bachelorarbeit
-        latexmk_use_lualatex: true
-        latexmk_shell_escape: true
-        args: >
-          -synctex=1
-          -interaction=nonstopmode
-          -file-line-error
-          -outdir=../../build
-
-    - name: Upload PDFs as artifacts
+    - name: Upload artifacts for ${{ matrix.document.name }}
       uses: actions/upload-artifact@v4
       with:
-        name: PDFs
-        path: |
-          build/expose.pdf
-          build/bachelorarbeit.pdf
+        name: ${{ matrix.document.name }} PDFs
+        path: build/${{ matrix.document.name }}/*
 
-    - name: Create or Update GitHub Release
+  release:
+    runs-on: ubuntu-latest
+    needs: build
+    strategy:
+      matrix:
+        document:
+          - name: template
+    steps:
+    - name: Download artifacts for ${{ matrix.document.name }}
+      uses: actions/download-artifact@v3
+      with:
+        name: ${{ matrix.document.name }} PDFs
+
+    - name: Upload ${{ matrix.document.name }} bundle to GitHub Release
       if: ${{ github.ref == 'refs/heads/main' }}
       uses: ncipollo/release-action@v1
       with:
         tag: latest
         name: "LaTeX Documents"
         body: |
-          This release contains the latest compiled LaTeX documents.
+          This release contains the latest compiled LaTeX documents, including auxiliary files.
         draft: false
         prerelease: false
         replacesArtifacts: true
         allowUpdates: true
         artifacts: |
-          build/expose.pdf
-          build/bachelorarbeit.pdf
+          build/${{ matrix.document.name }}/*
