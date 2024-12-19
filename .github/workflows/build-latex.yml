@@ -32,7 +32,7 @@ jobs:
           -synctex=1
           -interaction=nonstopmode
           -file-line-error
-          -outdir=../../../build/${{matrix.document.name}}
+          -outdir=../../../build
 
     - name: Build eidestattliche_erklärung for ${{matrix.document.name}}
       uses: xu-cheng/latex-action@v2
