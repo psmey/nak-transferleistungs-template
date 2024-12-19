@@ -25,7 +25,7 @@ jobs:
       uses: xu-cheng/latex-action@v2
       with:
         root_file: auftragsklärung.tex
-        working_directory: src/${{matrix.document.name}}
+        working_directory: src/${{matrix.document.name}}/auftragsklärung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         args: >
@@ -38,7 +38,7 @@ jobs:
       uses: xu-cheng/latex-action@v2
       with:
         root_file: eidestattliche_erklärung.tex
-        working_directory: src/${{matrix.document.name}}
+        working_directory: src/${{matrix.document.name}}/eidestattliche_erklärung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         args: >
@@ -51,7 +51,7 @@ jobs:
       uses: xu-cheng/latex-action@v2
       with:
         root_file: selbstreflexion.tex
-        working_directory: src/${{matrix.document.name}}
+        working_directory: src/${{matrix.document.name}}/selbstreflexion
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         args: >
@@ -64,7 +64,7 @@ jobs:
       uses: xu-cheng/latex-action@v2
       with:
         root_file: transferleistung.tex
-        working_directory: src/${{matrix.document.name}}
+        working_directory: src/${{matrix.document.name}}/transferleistung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         args: >
