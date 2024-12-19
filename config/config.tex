@@ -158,4 +158,22 @@
 \renewbibmacro*{date}{%
     \iffieldundef{date}
     {\bibstring{nodate}}
-    {\printdate}}
+    {\printdate}
+}
+
+% helper command
+
+\newcommand{\nakQuestionTabular}[2]{%
+    \renewcommand{\arraystretch}{1.5} % change vertical padding of the table
+
+    \begin{tabularx}
+        {\textwidth} % specify table width
+        {| X |} % collumn rules, X fills space to collumn width
+        \hline
+        \rowcolor{nakblue}
+        \textcolor{white}{#1} \\
+        \hline
+        #2                    \\
+        \hline
+    \end{tabularx}
+}
