@@ -33,6 +33,7 @@ jobs:
           -interaction=nonstopmode
           -file-line-error
           -outdir=.
+          -pdf
           -f
 
     - name: Build eidestattliche_erklärung for ${{matrix.document.name}}
@@ -47,6 +48,7 @@ jobs:
           -interaction=nonstopmode
           -file-line-error
           -outdir=.
+          -pdf
           -f
 
     - name: Build selbstreflexion for ${{matrix.document.name}}
@@ -61,6 +63,7 @@ jobs:
           -interaction=nonstopmode
           -file-line-error
           -outdir=.
+          -pdf
           -f
 
     - name: Build transferleistung for ${{matrix.document.name}}
@@ -75,6 +78,7 @@ jobs:
           -interaction=nonstopmode
           -file-line-error
           -outdir=.
+          -pdf
           -f
 
     - name: Upload artifacts for ${{ matrix.document.name }}
