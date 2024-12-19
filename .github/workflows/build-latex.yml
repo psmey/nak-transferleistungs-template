@@ -28,13 +28,6 @@ jobs:
         working_directory: src/${{matrix.document.name}}/auftragsklärung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
-        args: >
-          -synctex=1
-          -interaction=nonstopmode
-          -file-line-error
-          -outdir=.
-          -pdf
-          -f
 
     - name: Build eidestattliche_erklärung for ${{matrix.document.name}}
       uses: xu-cheng/latex-action@v3
