@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 env:
-  TEXMF_OUTPUT_DIRECTORY: ../../../build
+  TEXMF_OUTPUT_DIRECTORY: /github/workspace/build
 
 jobs:
   build:
