@@ -39,7 +39,7 @@ jobs:
         latexmk_shell_escape: true
         continue_on_error: true
 
-    - name: Compile selbstreflexion for ${{matrix.document}}
+    - name: Compile selbstreflexion for ${{ matrix.document }}
       uses: xu-cheng/latex-action@v3
       with:
         root_file: selbstreflexion.tex
@@ -48,11 +48,11 @@ jobs:
         latexmk_shell_escape: true
         continue_on_error: true
 
-    - name: Compile eidestattliche_erklärung for ${{matrix.documente}}
+    - name: Compile eidestattliche_erklärung for ${{ matrix.document }}
       uses: xu-cheng/latex-action@v3
       with:
         root_file: eidestattliche_erklärung.tex
-        working_directory: src/${{matrix.document}}/eidestattliche_erklärung
+        working_directory: src/${{ matrix.document }}/eidestattliche_erklärung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         continue_on_error: true
@@ -68,7 +68,7 @@ jobs:
     needs: build
     strategy:
       matrix:
-        documents:
+        document:
           - template
     steps:
     - name: Download artifacts for ${{ matrix.document }}
