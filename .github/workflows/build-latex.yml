@@ -21,6 +21,15 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
+
+    - name: Build transferleistung for ${{matrix.document.name}}
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: transferleistung.tex
+        working_directory: src/${{matrix.document.name}}/transferleistung
+        latexmk_use_lualatex: true
+        latexmk_shell_escape: true
+
     - name: Build auftragsklärung for ${{matrix.document.name}}
       uses: xu-cheng/latex-action@v3
       with:
@@ -49,21 +58,6 @@ jobs:
       with:
         root_file: selbstreflexion.tex
         working_directory: src/${{matrix.document.name}}/selbstreflexion
-        latexmk_use_lualatex: true
-        latexmk_shell_escape: true
-        args: >
-          -synctex=1
-          -interaction=nonstopmode
-          -file-line-error
-          -outdir=.
-          -pdf
-          -f
-
-    - name: Build transferleistung for ${{matrix.document.name}}
-      uses: xu-cheng/latex-action@v3
-      with:
-        root_file: transferleistung.tex
-        working_directory: src/${{matrix.document.name}}/transferleistung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         args: >
