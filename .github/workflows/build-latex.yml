@@ -75,27 +75,14 @@ jobs:
           src/${{ matrix.document }}/selbstreflexion/build/selbstreflexion.pdf
           src/${{ matrix.document }}/transferleistung/build/transferleistung.pdf
 
-  release:
-    runs-on: ubuntu-latest
-    needs: build
-    strategy:
-      matrix:
-        document:
-          - template
-    steps:
-    - name: Download artifacts for ${{ matrix.document }}
-      uses: actions/download-artifact@v3
-      with:
-        name: ${{ matrix.document }} PDFs
-
-    - name: Upload ${{ matrix.document }} bundle to GitHub Release
+    - name: Create ${{ matrix.document }} Release
       if: ${{ github.ref == 'refs/heads/main' }}
       uses: ncipollo/release-action@v1
       with:
         tag: latest
-        name: "LaTeX Documents"
+        name: "Documents"
         body: |
-          This release contains the latest compiled LaTeX documents.
+          This release contains the latest compiled documents.
         draft: false
         prerelease: false
         replacesArtifacts: true
