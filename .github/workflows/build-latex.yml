@@ -25,7 +25,7 @@ jobs:
       uses: xu-cheng/latex-action@v3
       with:
         root_file: transferleistung.tex
-        working_directory: src/template/transferleistung
+        working_directory: src/${{ matrix.document }}/transferleistung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         continue_on_error: true
