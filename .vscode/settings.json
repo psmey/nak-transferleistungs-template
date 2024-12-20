@@ -22,12 +22,13 @@
   "latex-workshop.latex.autoBuild.run": "onSave",
   "latex-workshop.latex.autoClean.run": "onBuilt",
   "latex-workshop.latex.bibDirs": [
-    "%DIR%"
+    "%DIR%/.."
   ],
   "latex-workshop.latex.clean.subfolder.enabled": true,
   "latex-workshop.latex.recipe.default": "latexmk", // only latex-workshop.latex.tools tool that has "-outdir=%OUTDIR%" arg
   "latex-workshop.linting.chktex.enabled": true, // LaTeX semantic checker https://www.ctan.org/pkg/chktex
   // "latex-workshop.linting.lacheck.enabled": true, // consistency checker for LaTeX documents but has many false positives...
+  "latex-workshop.latex.outDir": "%DIR%/build",
   "latex-workshop.texcount.autorun": "onSave",
   "latex-workshop.texcount.interval": 100,
   "latex-workshop.formatting.latex": "latexindent",
