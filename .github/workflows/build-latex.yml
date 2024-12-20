@@ -16,6 +16,7 @@ jobs:
       matrix:
         document:
           - template
+          - test
 
     steps:
     - name: Set up Git repository
@@ -79,7 +80,7 @@ jobs:
       if: ${{ github.ref == 'refs/heads/main' }}
       uses: ncipollo/release-action@v1
       with:
-        tag: ${{ matrix.document }}
+        tag: latest
         name: "Documents"
         body: |
           This release contains the latest compiled documents.

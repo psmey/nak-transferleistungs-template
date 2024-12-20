@@ -1,0 +1,45 @@
+\section{Beispiel Abschnitt}
+\parencite{latex_companion} ist eine Beispielreferenz.
+Es können Abkürzungen verwendet werden, wie \ac{BA} aber auch \ac{ABA}.
+
+\subsection{Beispiel Unterabschnitt}
+
+\begin{figure}[h]
+    \centering
+
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width=.8\linewidth]{NAK_logo_full_text}
+        \caption{Logo 1}
+        \label{fig:subfig1}
+    \end{subfigure}
+    \begin{subfigure}{.4\textwidth}
+        \centering
+        \includegraphics[width=.8\linewidth]{NAK_logo_full_text}
+        \caption{Logo 2}
+        \label{fig:subfig2}
+    \end{subfigure}
+
+    \caption{Nordakademie Logos}
+    \label{fig:fig}
+\end{figure}
+
+In Abb.~\ref{fig:subfig1} ist ein Beispiel Bild zu sehen.
+
+\begin{listing}[H]
+    \begin{minted}{c}
+        int main() {
+            // print hello world
+            printf("hello, world!");
+            return 0;
+        }
+    \end{minted}
+    \caption{Hello world in C}
+    \label{lst:listing}
+\end{listing}
+
+Zu Quelltext~\ref{lst:listing} kann auch Code innerhalb eines Textes ergänzt werden mit \mintinline{c}|int i = 1|.
+
+\subsubsection{Beispiel Unterunterabschnitt}
+
+\Blindtext{}

@@ -1,0 +1,34 @@
+\documentclass[12pt]{article}
+
+% internal inputs
+\input{../../../config/packages.tex}
+\input{../../../config/config.tex}
+\input{../../../config/env.tex}
+
+\begin{document}
+
+% header
+\pagestyle{fancy} % enable fancyhdr package
+\fancyhf{} % clear header and footer content
+\fancyhead[C]{\includegraphics[width=\textwidth]{header.png}} % add header content
+
+\vspace*{1.5em}
+
+\section*{Eidesstattliche Erklärung des Studenten / der Studentin}
+
+Hiermit erkläre ich an Eides statt, dass ich die vorliegende Arbeit ohne Hilfe Dritter und ohne Benutzung anderer als der angegebenen Hilfsmittel angefertigt habe. Die aus fremden Quellen direkt oder indirekt übernommenen Gedanken sind als solche kenntlich gemacht. Die Arbeit wurde bisher in gleicher oder ähnlicher Form weder von mir noch von jemand anderem als Prüfungsleistung vorgelegt.
+
+\vspace{3em}
+
+\renewcommand{\arraystretch}{1.5} % change vertical padding of the table
+
+\begin{tabular}{%
+        m{.15\textwidth}
+        m{.025\textwidth}
+        m{.3\textwidth}
+    }
+          &  &              \\ \cline{1-1} \cline{3-3}
+    Datum &  & Unterschrift \\
+\end{tabular}
+
+\end{document}

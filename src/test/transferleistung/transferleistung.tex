@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+
+% internal inputs
+\input{../../../config/packages.tex}
+\input{../../../config/config.tex}
+\input{../../../config/env.tex}
+
+\setlength{\textheight}{22.5cm} % make more space for deckblatt footer
+
+\begin{document}
+
+% header
+\pagestyle{fancy} % enable fancyhdr package
+\fancyhf{} % clear header and footer content
+\fancyhead[C]{\includegraphics[width=\textwidth]{header.png}} % add header content
+
+\input{deckblatt.tex}
+\setlength{\textheight}{24.5cm} % restore original footer height
+\newpage
+
+% footer
+\fancyfoot{} % clear footer content
+\fancyfoot[C]{\thepage{}}
+
+% frontmatter
+\frontmatter % start pagenumberin
+
+% table of contents
+\renewcommand{\contentsname}{Inhalt}
+\tableofcontents
+\newpage
+
+% list of figures
+\renewcommand{\listfigurename}{Abbildungen}
+\listoffigures
+\newpage
+
+% list of tables
+\renewcommand{\listtablename}{Tabellen}
+\listoftables
+\newpage
+
+% list of code
+\def\listoflistingsCaptionValue{Quelltext}
+\renewcommand\listoflistingscaption{\listoflistingsCaptionValue}
+\listoflistings
+\addcontentsline{toc}{section}{\listoflistingsCaptionValue}
+\newpage
+
+% acronyms
+\def\acronymsCaptionValue{Abkürzungen}
+\printacronyms[
+    template=tabular, % use a table like formatting for acronyms list
+    name=\acronymsCaptionValue % set heading
+]{}
+\addcontentsline{toc}{section}{\acronymsCaptionValue}
+\newpage
+
+% mainmatter
+\mainmatter % start pagenumbering of mainmatter
+
+%% content
+\input{content.tex}
+
+\newpage
+
+% backmatter
+\backmatter % reapply pagenumbering from frontmatter
+
+% bibliography
+\printbibliography[heading=bibintoc]
+
+\newpage
+
+\appendix
+
+\section{Anhang}
+
+\subsection{Beispiel Anhang} % Heading for appendix
+\label{app:bsp_anhang}
+\newpage
+\appendixmatter
+\includepdf[pages=-]{../assets/appendix/LaTeX_CheatSheet.pdf} % add pdf into main
+\backmatter % set correct page value, to not count appendix pages
+
+\newpage
+
+\subsection{Beispiel Anhang 2} % Heading for appendix
+\label{app:bsp_anhang_2}
+\newpage
+\appendixmatter
+\includepdf[pages=-]{../assets/appendix/LaTeX_CheatSheet.pdf} % add pdf into main
+\backmatter % set correct page value, to not count appendix pages
+
+\end{document}
