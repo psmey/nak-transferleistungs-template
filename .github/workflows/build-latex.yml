@@ -54,11 +54,11 @@ jobs:
         args: >
           -outdir=build
 
-    - name: Compile eidestattliche_erklärung for ${{ matrix.document }}
+    - name: Compile eidestattliche_erklaerung for ${{ matrix.document }}
       uses: xu-cheng/latex-action@v3
       with:
-        root_file: eidestattliche_erklärung.tex
-        working_directory: src/${{ matrix.document }}/eidestattliche_erklärung
+        root_file: eidestattliche_erklaerung.tex
+        working_directory: src/${{ matrix.document }}/eidestattliche_erklaerung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         continue_on_error: true
