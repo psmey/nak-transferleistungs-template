@@ -32,11 +32,11 @@ jobs:
         args: >
           -outdir=build
 
-    - name: Compile auftragsklärung for ${{ matrix.document }}
+    - name: Compile auftragsklaerung for ${{ matrix.document }}
       uses: xu-cheng/latex-action@v3
       with:
-        root_file: auftragsklärung.tex
-        working_directory: src/${{ matrix.document }}/auftragsklärung
+        root_file: auftragsklaerung.tex
+        working_directory: src/${{ matrix.document }}/auftragsklaerung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         continue_on_error: true
@@ -97,7 +97,7 @@ jobs:
         replacesArtifacts: true
         allowUpdates: true
         artifacts: |
-          src/${{ matrix.document.name }}/auftragsklärung/auftragsklärung.pdf
+          src/${{ matrix.document.name }}/auftragsklaerung/auftragsklaerung.pdf
           src/${{ matrix.document.name }}/eidestattliche_erklärung/eidestattliche_erklärung.pdf
           src/${{ matrix.document.name }}/selbstreflexion/selbstreflexion.pdf
           src/${{ matrix.document.name }}/transferleistung/transferleistung.pdf
