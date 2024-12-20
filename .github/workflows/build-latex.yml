@@ -80,8 +80,8 @@ jobs:
       if: ${{ github.ref == 'refs/heads/main' }}
       uses: ncipollo/release-action@v1
       with:
-        tag: latest
-        name: "Documents"
+        tag: ${{ matrix.document }}
+        name: "${{ matrix.document }} Documents"
         body: |
           This release contains the latest compiled documents.
         draft: false
