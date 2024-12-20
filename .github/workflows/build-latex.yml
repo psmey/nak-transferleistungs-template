@@ -68,8 +68,12 @@ jobs:
     - name: Upload artifacts for ${{ matrix.document }}
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ matrix.document }} PDFs
-        path: src/${{matrix.document}}/
+        name: ${{ matrix.document }}
+        path: |
+          src/${{ matrix.document }}/auftragsklaerung/auftragsklaerung.pdf
+          src/${{ matrix.document }}/eidestattliche_erklaerung/eidestattliche_erklaerung.pdf
+          src/${{ matrix.document }}/selbstreflexion/selbstreflexion.pdf
+          src/${{ matrix.document }}/transferleistung/transferleistung.pdf
 
   release:
     runs-on: ubuntu-latest
@@ -91,7 +95,7 @@ jobs:
         tag: latest
         name: "LaTeX Documents"
         body: |
-          This release contains the latest compiled LaTeX documents, including auxiliary files.
+          This release contains the latest compiled LaTeX documents.
         draft: false
         prerelease: false
         replacesArtifacts: true
