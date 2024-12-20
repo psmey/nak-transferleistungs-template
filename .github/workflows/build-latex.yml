@@ -98,6 +98,6 @@ jobs:
         allowUpdates: true
         artifacts: |
           src/${{ matrix.document.name }}/auftragsklaerung/auftragsklaerung.pdf
-          src/${{ matrix.document.name }}/eidestattliche_erklärung/eidestattliche_erklärung.pdf
+          src/${{ matrix.document.name }}/eidestattliche_erklaerung/eidestattliche_erklaerung.pdf
           src/${{ matrix.document.name }}/selbstreflexion/selbstreflexion.pdf
           src/${{ matrix.document.name }}/transferleistung/transferleistung.pdf
