@@ -21,20 +21,20 @@ jobs:
     - name: Set up Git repository
       uses: actions/checkout@v4
 
-    - name: Compile transferleistung for ${{matrix.document}}
+    - name: Compile transferleistung for ${{ matrix.document }}
       uses: xu-cheng/latex-action@v3
       with:
         root_file: transferleistung.tex
-        working_directory: src/${{matrix.document}}/transferleistung
+        working_directory: src/${{ matrix.document }}/transferleistung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         continue_on_error: true
 
-    - name: Compile auftragsklärung for ${{matrix.document}}
+    - name: Compile auftragsklärung for ${{ matrix.document }}
       uses: xu-cheng/latex-action@v3
       with:
         root_file: auftragsklärung.tex
-        working_directory: src/${{matrix.document}}/auftragsklärung
+        working_directory: src/${{ matrix.document }}/auftragsklärung
         latexmk_use_lualatex: true
         latexmk_shell_escape: true
         continue_on_error: true
