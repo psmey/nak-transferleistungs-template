@@ -70,10 +70,10 @@ jobs:
       with:
         name: ${{ matrix.document }}
         path: |
-          src/${{ matrix.document }}/auftragsklaerung/auftragsklaerung.pdf
-          src/${{ matrix.document }}/eidestattliche_erklaerung/eidestattliche_erklaerung.pdf
-          src/${{ matrix.document }}/selbstreflexion/selbstreflexion.pdf
-          src/${{ matrix.document }}/transferleistung/transferleistung.pdf
+          src/${{ matrix.document }}/auftragsklaerung/build/auftragsklaerung.pdf
+          src/${{ matrix.document }}/eidestattliche_erklaerung/build/eidestattliche_erklaerung.pdf
+          src/${{ matrix.document }}/selbstreflexion/build/selbstreflexion.pdf
+          src/${{ matrix.document }}/transferleistung/build/transferleistung.pdf
 
   release:
     runs-on: ubuntu-latest
@@ -101,7 +101,7 @@ jobs:
         replacesArtifacts: true
         allowUpdates: true
         artifacts: |
-          src/${{ matrix.document.name }}/auftragsklaerung/auftragsklaerung.pdf
-          src/${{ matrix.document.name }}/eidestattliche_erklaerung/eidestattliche_erklaerung.pdf
-          src/${{ matrix.document.name }}/selbstreflexion/selbstreflexion.pdf
-          src/${{ matrix.document.name }}/transferleistung/transferleistung.pdf
+          src/${{ matrix.document.name }}/auftragsklaerung/build/auftragsklaerung.pdf
+          src/${{ matrix.document.name }}/eidestattliche_erklaerung/build/eidestattliche_erklaerung.pdf
+          src/${{ matrix.document.name }}/selbstreflexion/build/selbstreflexion.pdf
+          src/${{ matrix.document.name }}/transferleistung/build/transferleistung.pdf
